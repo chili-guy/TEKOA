@@ -23,7 +23,9 @@ body {
   font-family: "Montserrat", "Inter", "Public Sans", system-ui, -apple-system, sans-serif;
   color: var(--brand-navy);
   background-color: var(--brand-bg);
-  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -33,7 +35,7 @@ h4,
 h5,
 h6,
 .font-display {
-  font-family: "Cairo Play", "Montserrat", "Inter", sans-serif;
+  font-family: "Montserrat", "Inter", "Public Sans", sans-serif;
   letter-spacing: -0.01em;
 }
 
