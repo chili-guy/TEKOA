@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Meus Agendamentos</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec", // Blue
+                        "primary-dark": "#0a2e76", // Dark Blue for text
+                        "primary-light": "#eef4ff", // Very light blue for backgrounds
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white pb-24">
+<!-- Header -->
+<header class="sticky top-0 z-30 bg-white/90 dark:bg-[#111318]/90 backdrop-blur-md shadow-sm">
+<div class="px-4 py-3 flex items-center justify-between">
+<button class="flex items-center justify-center p-2 -ml-2 text-primary-dark dark:text-white rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[28px]">chevron_left</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-xs font-bold text-primary tracking-widest uppercase mb-0.5">Ádvena</span>
+<h1 class="text-lg font-bold text-primary-dark dark:text-white leading-tight">Meus Agendamentos</h1>
+</div>
+<!-- Placeholder for layout balance, or an action button -->
+<div class="w-10"></div>
+</div>
+<!-- Segmented Control / Tabs -->
+<div class="px-4 pb-4 pt-2">
+<div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-xl relative">
+<!-- Active Indicator (Absolute position if using JS animation, here static for pure CSS layout) -->
+<!-- Tab 1 -->
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="status" type="radio" value="futuros"/>
+<div class="py-2.5 text-center text-sm font-semibold text-slate-500 rounded-lg transition-all peer-checked:bg-white peer-checked:text-primary peer-checked:shadow-sm dark:peer-checked:bg-slate-700 dark:peer-checked:text-white">
+                        Futuros
+                    </div>
+</label>
+<!-- Tab 2 -->
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="status" type="radio" value="passados"/>
+<div class="py-2.5 text-center text-sm font-semibold text-slate-500 rounded-lg transition-all peer-checked:bg-white peer-checked:text-primary peer-checked:shadow-sm dark:peer-checked:bg-slate-700 dark:peer-checked:text-white">
+                        Passados
+                    </div>
+</label>
+</div>
+</div>
+</header>
+<!-- Main Content List -->
+<main class="px-4 py-4 flex flex-col gap-4">
+<!-- Card 1: Action Needed -->
+<article class="bg-white dark:bg-[#1a2230] p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden flex-shrink-0 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Portrait of Maria Gonzalez smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbP4WXne5GzjFLeygKTXm3TSx6YIB63RbXgnBtsFDjJ0eIQN7i8hlZehEucGRrClB6FDhV4XKzV9hAt_7-qXo3V2gf6VhZaA1v9kpqUaJZ4j7gH0ZRjf_owWaBiiWdmVIh9gzxNM2KhVBT67XyahOxuvz11A5FBGeL0m0v16NEXN4p1pwh6cjV0ogSiy1P57ZHgSEqc6WY90r_RsNRMBdMx4qAqXYYM2g-0WIobEYAYWB-cHftF0iZP77U9EzEPiqtqZIJ9tjyEuQ");'></div>
+</div>
+<div>
+<h3 class="font-bold text-primary-dark dark:text-white text-lg leading-tight">Maria Gonzalez</h3>
+<span class="inline-flex items-center gap-1 text-xs font-medium text-primary bg-primary-light px-2 py-0.5 rounded-full mt-1">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                            Mentoria de Carreira
+                        </span>
+</div>
+</div>
+<div class="bg-orange-50 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[20px] block">priority_high</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm font-medium bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span>
+<span>24 Out</span>
+</div>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>14:00 - 15:00</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold hover:bg-slate-200 transition-colors">
+                    Reagendar
+                </button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 hover:bg-blue-700 transition-colors">
+                    Confirmar
+                </button>
+</div>
+</article>
+<!-- Card 2: Confirmed / Details -->
+<article class="bg-white dark:bg-[#1a2230] p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden flex-shrink-0 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Portrait of Jean Pierre looking professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCibgaaB9nzp5i2p4Odt6N-NpD8Io97DMvDDYseVeBzzU1QTDwltK8d6KTohMeTlPQx3Cj7cb_u0TsH_Tb-maCaX0_AnDWXtld-9epZ8NUW6PPZmEcWuhZoFdCZMrjmS8F6qQSlwNA9igGTKr4swH7Ts5RRbD1ACICxRqHbW0KTcFN-OYZzkEm1IMJZ72aG9EFRqY60G3izq-GCubq35a-9P9kz0m3pjXoQ8onqsCad166rc7S9sMPucRnjipWJzBNTiOhNhwKlFKU");'></div>
+</div>
+<div>
+<h3 class="font-bold text-primary-dark dark:text-white text-lg leading-tight">Jean Pierre</h3>
+<span class="inline-flex items-center gap-1 text-xs font-medium text-purple-600 bg-purple-50 dark:bg-purple-900/30 dark:text-purple-300 px-2 py-0.5 rounded-full mt-1">
+<span class="material-symbols-outlined text-[14px]">description</span>
+                            Revisão de CV
+                        </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm font-medium bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span>
+<span>26 Out</span>
+</div>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>09:00 - 10:00</span>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary-light text-primary dark:bg-slate-700 dark:text-primary-light text-sm font-bold hover:bg-blue-100 transition-colors w-full">
+                Ver Detalhes
+            </button>
+</article>
+<!-- Card 3: Another Appointment -->
+<article class="bg-white dark:bg-[#1a2230] p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden flex-shrink-0 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Portrait of Ana Silva smiling broadly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDd64vbVYc8ZGsgM_i0I8XXFMPMI_2Tsbfr6BxW8f2eVb_oBx6RKLkg7otXRJf9uckZNjenpootSSEweK_tJDlUttWX-FErLZWfIRZBt_yTBVDQXS-CxV0gj6WXNkXSwkNFalRSFWr1R-pxQb_9ysnLAEdUCuCOUXF0jpo0AZIZ98QTYXL2WP0NQDvCT3rIlyWAa6rzPfPL6NEi1jdmOYBpZZAMB-02ZMY1DfQkoMOFbuU-Ha-TFl0rXxXGZvnO7MKBXrbCl83zNnk");'></div>
+</div>
+<div>
+<h3 class="font-bold text-primary-dark dark:text-white text-lg leading-tight">Ana Silva</h3>
+<span class="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-300 px-2 py-0.5 rounded-full mt-1">
+<span class="material-symbols-outlined text-[14px]">forum</span>
+                            Networking
+                        </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm font-medium bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span>
+<span>28 Out</span>
+</div>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>16:00 - 17:00</span>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary-light text-primary dark:bg-slate-700 dark:text-primary-light text-sm font-bold hover:bg-blue-100 transition-colors w-full">
+                Ver Detalhes
+            </button>
+</article>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-[#111318] border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-2 z-40">
+<ul class="flex justify-around items-end w-full max-w-lg mx-auto h-16 pb-2">
+<!-- Home -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+</li>
+<!-- Appointments (Active) -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-primary dark:text-primary-light transition-colors group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px] fill-current">calendar_month</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+</span>
+</div>
+<span class="text-[10px] font-bold">Agendamentos</span>
+</a>
+</li>
+<!-- Profile -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</a>
+</li>
+<!-- More -->
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">menu</span>
+<span class="text-[10px] font-medium">Mais</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Safe area padding for bottom navigation -->
+<div class="h-6 w-full bg-white dark:bg-[#111318] fixed bottom-0 z-30 pointer-events-none"></div>
+</body></html>

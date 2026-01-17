@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfil do Psicólogo - Ádvena</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                        "navy-dark": "#0F172A", 
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-white dark:bg-background-dark font-display text-navy-dark dark:text-background-light flex flex-col min-h-screen relative overflow-x-hidden antialiased">
+<!-- Header: Back Button -->
+<header class="sticky top-0 z-20 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+<button aria-label="Voltar" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-light dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-navy-dark dark:text-white text-2xl">arrow_back</span>
+</button>
+<!-- Optional Actions -->
+<div class="flex gap-2">
+<button aria-label="Favoritar" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-light dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-navy-dark dark:text-white text-2xl">favorite</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col w-full max-w-lg mx-auto pb-32">
+<!-- Profile Header Section -->
+<section class="flex flex-col items-center px-6 pt-2 pb-6 animate-fade-in">
+<!-- Avatar -->
+<div class="relative mb-5 group cursor-pointer">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-background-light dark:border-white/10 shadow-lg bg-gray-200">
+<img alt="Foto de perfil da Dra. Ana Silva sorrindo com roupa profissional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCp1Y758H36J46f9wN_MCATDlrP9IFSGtBh0QIAKqnZ38nzr1_iXTKu0gUr8TwZ_kLrBsIAlMJjIl6HENdR0jzkQDcCVwefPTS2q2lOWAyOy_VeCNv7W-cw5-Sig0-1zOVep5Ph3NZ7XBBMzTFvhRki7ocIm11GCVvJlM05OwuLGVdKIwWDBTZi4K3XEJLxR6JlQ55RLmlTNMLyDT2zRpVyKnXqZrFPejOzIUUPqg_gluqO_eSfwzL87NDao3I-QYZ5jwAack4wkg"/>
+</div>
+<!-- Verification Badge -->
+<div class="absolute bottom-1 right-1 bg-green-500 text-white p-1 rounded-full border-2 border-white dark:border-background-dark flex items-center justify-center" title="Verificado">
+<span class="material-symbols-outlined text-[16px] leading-none">check</span>
+</div>
+</div>
+<!-- Name & Title -->
+<div class="text-center space-y-1">
+<h1 class="text-2xl font-bold text-navy-dark dark:text-white leading-tight">Dr. Ana Silva</h1>
+<p class="text-primary font-medium text-base">Psicóloga Intercultural</p>
+</div>
+</section>
+<!-- Bio Section -->
+<section class="px-6 pb-6">
+<p class="text-navy-dark dark:text-gray-300 text-base leading-relaxed text-center opacity-90">
+                Especialista em traumas de migração e adaptação cultural. Atendo em Português e Espanhol, criando um espaço seguro para você.
+            </p>
+</section>
+<!-- Chips / Areas of Focus -->
+<section class="w-full overflow-x-auto no-scrollbar px-6 pb-8">
+<div class="flex flex-wrap justify-center gap-3">
+<div class="flex items-center justify-center px-4 py-2 rounded-full bg-background-light dark:bg-white/10 border border-transparent dark:border-white/5">
+<span class="text-navy-dark dark:text-white text-sm font-semibold">Ansiedade</span>
+</div>
+<div class="flex items-center justify-center px-4 py-2 rounded-full bg-background-light dark:bg-white/10 border border-transparent dark:border-white/5">
+<span class="text-navy-dark dark:text-white text-sm font-semibold">Luto Migratório</span>
+</div>
+<div class="flex items-center justify-center px-4 py-2 rounded-full bg-background-light dark:bg-white/10 border border-transparent dark:border-white/5">
+<span class="text-navy-dark dark:text-white text-sm font-semibold">Adaptação</span>
+</div>
+<div class="flex items-center justify-center px-4 py-2 rounded-full bg-background-light dark:bg-white/10 border border-transparent dark:border-white/5">
+<span class="text-navy-dark dark:text-white text-sm font-semibold">Autoestima</span>
+</div>
+</div>
+</section>
+<!-- Video Section -->
+<section class="px-6 mb-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">videocam</span>
+<h3 class="text-navy-dark dark:text-white text-lg font-bold leading-tight">Conheça o psicólogo antes de agendar</h3>
+</div>
+<div class="relative w-full aspect-video bg-gray-100 dark:bg-white/5 rounded-xl overflow-hidden shadow-sm group cursor-pointer">
+<!-- Thumbnail -->
+<img alt="Thumbnail do vídeo de apresentação da Dra. Ana Silva no consultório" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0xy1X7ffhP-WrDnhRAfWacbZTbMv7nMIUdYMzbl79kPkVDJ8W1cIVqTCyrhH8SQgB9OE01xqdrsrXStbTRrEv6q-9w3nTmCkKGF6BIDd9-cQGh3L9uhWeCzgO6iI_4JtXHWaCmNdrK_fSHXPnkBQ_roOnFRfVMlAiPkOYOkLxGm2DmjjphHRd9BKLjVmyNocpsyl62BxPSLuh3DcCkeKJyhlnNtR6feOlCrqdntY3qBD-L4fYeQZ4MvrmyZcnUXRljm5Z9BeZCCo"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 bg-navy-dark/10 group-hover:bg-navy-dark/0 transition-colors flex items-center justify-center">
+<div class="w-16 h-16 bg-white/90 dark:bg-background-dark/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl ml-1 filled">play_arrow</span>
+</div>
+</div>
+<!-- Duration Badge -->
+<div class="absolute bottom-3 right-3 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded-md backdrop-blur-md">
+                    1:45
+                </div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button Area -->
+<div class="fixed bottom-[80px] left-0 right-0 p-4 z-20 flex justify-center w-full pointer-events-none">
+<button class="w-full max-w-md bg-primary hover:bg-[#d96e00] active:scale-[0.98] transition-all text-white font-bold text-lg h-14 rounded-xl shadow-[0_8px_20px_-4px_rgba(242,127,13,0.4)] flex items-center justify-center gap-2 pointer-events-auto">
+<span>Ver horários disponíveis</span>
+<span class="material-symbols-outlined">calendar_clock</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-background-dark border-t border-gray-100 dark:border-white/5 z-30 pb-safe">
+<div class="flex justify-around items-center h-[72px] max-w-lg mx-auto px-2">
+<!-- Nav Item: Início -->
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors text-2xl">home</span>
+<span class="text-[10px] font-medium text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Início</span>
+</button>
+<!-- Nav Item: Agendar (Active Context) -->
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-primary text-2xl filled">calendar_month</span>
+<span class="text-[10px] font-bold text-primary">Agendar</span>
+</button>
+<!-- Nav Item: Conteúdos -->
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors text-2xl">article</span>
+<span class="text-[10px] font-medium text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Conteúdos</span>
+</button>
+<!-- Nav Item: Perfil -->
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors text-2xl">person</span>
+<span class="text-[10px] font-medium text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Perfil</span>
+</button>
+</div>
+</nav>
+</body></html>

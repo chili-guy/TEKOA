@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentor - Perfil</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#221910",
+                        "text-dark": "#0B1D3F", // Custom Dark Blue for text as requested
+                        "text-secondary": "#4A5568",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display flex flex-col min-h-screen text-text-dark dark:text-gray-100 antialiased">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between">
+<button aria-label="Voltar" class="flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-text-dark dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-text-dark dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">Perfil do Mentor</h2>
+</div>
+<!-- Main Content Area with padding for bottom nav and floating button -->
+<main class="flex-1 flex flex-col w-full max-w-md mx-auto pb-32">
+<!-- Profile Header -->
+<div class="flex flex-col gap-4 items-center p-6 pb-2">
+<div class="relative group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 shadow-md border-4 border-white dark:border-background-dark" data-alt="Close up portrait of Ana Silva smiling warmly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2i4n7TQ8WGjarW0oiHeZfhVO5NDT21ui4UN4FhDHzqnqm_PYMBjXcRvbZk6mx4DCnr9Ij_uQ-sbsTH1pYro6zrtk9zR0gq_Q7fnEDC1iWW1LfQ3Cdy2Ot90uaYvGsbKkTu3vNczDxQGPhsaR1XIKx-dLUYrtAK2CNgO8ZT5WYPduZNE8UBstYh9WoQr-B93mavNyHKw4rZg1UF3hDeQzVLH_W38sOvj4Ry4t7iVZLRb90RP-v-TgW7vwYZdCce2PHunV9jqfutNA");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-green-500 w-6 h-6 rounded-full border-4 border-white dark:border-background-dark" title="Online Agora"></div>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<h1 class="text-text-dark dark:text-white text-2xl font-bold leading-tight mb-1">Ana Silva</h1>
+<p class="text-text-secondary dark:text-gray-400 text-base font-medium">Psicóloga Especialista em Migração</p>
+<div class="flex items-center gap-1 mt-2 text-yellow-500">
+<span class="material-symbols-outlined fill-1" style="font-size: 20px;">star</span>
+<span class="text-text-dark dark:text-white font-bold text-sm">4.9</span>
+<span class="text-gray-400 text-sm font-normal">(120 avaliações)</span>
+</div>
+</div>
+</div>
+<!-- Headline: Sobre mim -->
+<div class="px-6 pt-4">
+<h2 class="text-text-dark dark:text-white text-xl font-bold leading-tight pb-2">Sobre mim</h2>
+<p class="text-text-secondary dark:text-gray-300 text-base font-normal leading-relaxed">
+                Tenho 10 anos de experiência ajudando imigrantes a se adaptarem a novas culturas e superarem a ansiedade. Acredito no acolhimento como primeiro passo para uma vida plena longe de casa.
+            </p>
+</div>
+<!-- Specialties (Chips) -->
+<div class="px-6 pt-6">
+<h3 class="text-text-dark dark:text-white text-xl font-bold leading-tight pb-3">Especialidades</h3>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-text-dark dark:text-blue-100 text-sm font-semibold border border-blue-100 dark:border-blue-800">
+                    Ansiedade
+                </span>
+<span class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-text-dark dark:text-blue-100 text-sm font-semibold border border-blue-100 dark:border-blue-800">
+                    Integração Cultural
+                </span>
+<span class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-text-dark dark:text-blue-100 text-sm font-semibold border border-blue-100 dark:border-blue-800">
+                    Carreira
+                </span>
+<span class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-text-dark dark:text-blue-100 text-sm font-semibold border border-blue-100 dark:border-blue-800">
+                    Saudade
+                </span>
+</div>
+</div>
+<!-- Video Presentation -->
+<div class="px-6 pt-8 pb-4">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-text-dark dark:text-white text-xl font-bold leading-tight">Apresentação</h3>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg group cursor-pointer bg-gray-200 dark:bg-gray-800">
+<!-- Thumbnail -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Video thumbnail showing Ana talking to camera in a bright office" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCblVqEyZsm9siOPf08CuNKbDVw8oGtzROY0PvmDqKN6NuCiXbIegDoCRtm6SEA9dZl8R1rrzpRSh2EfqHW4cqKUU4nVVoTporYozFHDBOS192ro87pEdlJduRQVjyOCC5H_ItpTsBAIlapSOfqt4TM6OlkhopgiNrLFgRDLLDIRl4FrcoMMpcQAddav6MShAi5ljVqq-hT1HMw0Vyhx2zPLS_wTabnXplr-fuKwiqpPG5u2gGtOaGwChU4ywQKD1VlpLZ2rO9GKOA");'>
+</div>
+<!-- Overlay Gradient -->
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+<!-- Play Button -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary/90 hover:bg-primary text-white rounded-full p-3 pl-4 shadow-xl transition-all transform group-hover:scale-110 flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined" style="font-size: 32px;">play_arrow</span>
+</div>
+</div>
+<!-- Label Overlay -->
+<div class="absolute bottom-3 left-4 right-4">
+<p class="text-white text-sm font-medium drop-shadow-md bg-black/40 inline-block px-2 py-1 rounded backdrop-blur-md">Conheça a Ana antes de agendar</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Area (Sticky Bottom above nav) -->
+<div class="fixed bottom-[72px] left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark z-20 pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<button class="w-full bg-primary hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span>Ver horários disponíveis</span>
+<span class="material-symbols-outlined" style="font-size: 24px;">calendar_month</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#1a120b] border-t border-gray-100 dark:border-gray-800 pb-safe z-30 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="max-w-md mx-auto grid grid-cols-4 h-16">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary transition-colors gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary transition-colors gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">calendar_today</span>
+<span class="text-[10px] font-medium">Agendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary dark:text-gray-500 dark:hover:text-primary transition-colors gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">article</span>
+<span class="text-[10px] font-medium">Conteúdos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary transition-colors gap-1" href="#">
+<span class="material-symbols-outlined text-2xl fill-1">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</a>
+</div>
+<!-- Safe area spacing for iOS home indicator -->
+<div class="h-1 bg-white dark:bg-[#1a120b] w-full"></div>
+</nav>
+</body></html>

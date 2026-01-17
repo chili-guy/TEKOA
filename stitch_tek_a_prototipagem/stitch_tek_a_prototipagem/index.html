@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MVP - Fluxos Logicos</title>
+    <link rel="stylesheet" href="brand.css" />
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f7f8fc;
+        color: #333d5f;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e8f2;
+        background: #ffffff;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      header .meta {
+        font-size: 12px;
+        color: #7a86a1;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        min-height: calc(100vh - 50px);
+      }
+      .sidebar {
+        border-right: 1px solid #e3e8f2;
+        background: #ffffff;
+        padding: 12px;
+        overflow-y: auto;
+      }
+      .sidebar h2 {
+        margin: 8px 0 12px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #7a86a1;
+      }
+      .flow-list,
+      .step-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .flow-list button,
+      .step-list button {
+        width: 100%;
+        border: 1px solid #e3e8f2;
+        background: #ffffff;
+        color: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .flow-list button.active,
+      .step-list button.active {
+        border-color: #2a78ea;
+        background: #eaf2ff;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e8f2;
+        background: #ffffff;
+      }
+      .toolbar .title {
+        font-weight: 600;
+      }
+      .toolbar .path {
+        font-size: 12px;
+        color: #7a86a1;
+        word-break: break-all;
+      }
+      .toolbar button,
+      .toolbar a {
+        border: 1px solid #e3e8f2;
+        background: #ffffff;
+        color: inherit;
+        padding: 6px 10px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .toolbar button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .frame-wrap {
+        flex: 1;
+        background: #f0f4ff;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+      }
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          border-right: 0;
+          border-bottom: 1px solid #e3e8f2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>MVP - Fluxos Logicos (telas originais)</h1>
+      <div class="meta">Sem alterar os arquivos de origem</div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Fluxos</h2>
+        <ul class="flow-list" id="flowList"></ul>
+        <h2>Etapas</h2>
+        <ul class="step-list" id="stepList"></ul>
+      </aside>
+      <section class="content">
+        <div class="toolbar">
+          <div class="title" id="stepTitle">Selecione um fluxo</div>
+          <div class="path" id="stepPath"></div>
+          <button id="prevBtn" type="button">Anterior</button>
+          <button id="nextBtn" type="button">Proximo</button>
+          <a id="openBtn" href="#" target="_blank" rel="noreferrer">Abrir em nova guia</a>
+        </div>
+        <div class="frame-wrap">
+          <iframe id="screenFrame" title="Tela"></iframe>
+        </div>
+      </section>
+    </div>
+    <script>
+      const flows = [
+        {
+          id: "entrada_onboarding",
+          name: "Entrada e Onboarding (usuario)",
+          steps: [
+            { title: "Entrada / Cadastro ou Login", path: "entrada_/_cadastro_ou_login/code.html" },
+            { title: "Boas-vindas", path: "boas-vindas_-_onboarding/code.html" },
+            { title: "Psicologia intercultural", path: "psicologia_intercultural_-_onboarding/code.html" },
+            { title: "Rede de apoio", path: "rede_de_apoio_-_onboarding/code.html" },
+            { title: "Testes online", path: "testes_online_-_onboarding/code.html" },
+            { title: "Videoteca de integracao", path: "videoteca_de_integração_-_onboarding/code.html" },
+            { title: "Clube do imigrante", path: "clube_do_imigrante_-_onboarding/code.html" },
+            { title: "Blog e noticias", path: "blog_e_notícias_-_onboarding/code.html" },
+            { title: "Finalizacao do onboarding", path: "finalização_do_onboarding/code.html" },
+            { title: "Escolha de perfil Tekoa", path: "escolha_de_perfil_tekóa/code.html" },
+            { title: "Escolha de plano", path: "escolha_de_plano/code.html" },
+            { title: "Checkout (confirmacao)", path: "checkout_/_confirmação/code.html" }
+          ]
+        },
+        {
+          id: "dashboard_usuario",
+          name: "Dashboard e conta (usuario)",
+          steps: [
+            { title: "Dashboard principal", path: "dashboard_principal_-_meu_painel/code.html" },
+            { title: "Perfil principal", path: "perfil_principal/code.html" },
+            { title: "Configuracoes da conta", path: "configurações_da_conta/code.html" },
+            { title: "Metodos de pagamento", path: "métodos_de_pagamento/code.html" },
+            { title: "Minha assinatura", path: "minha_assinatura/code.html" },
+            { title: "Meus agendamentos", path: "meus_agendamentos/code.html" }
+          ]
+        },
+        {
+          id: "consulta_psicologia",
+          name: "Consulta (psicologia)",
+          steps: [
+            { title: "Psicologos - listagem", path: "psicólogos_-_listagem/code.html" },
+            { title: "Psicologo - perfil", path: "psicólogo_-_perfil/code.html" },
+            { title: "Selecao de pacote", path: "consulta_-_seleção_de_pacote/code.html" },
+            { title: "Selecao de horario", path: "consulta_-_seleção_de_horário/code.html" },
+            { title: "Checkout / pagamento", path: "consulta_-_checkout/pagamento/code.html" },
+            { title: "Confirmacao", path: "consulta_-_confirmação/code.html" }
+          ]
+        },
+        {
+          id: "mentoria",
+          name: "Mentoria (usuario)",
+          steps: [
+            { title: "Mentores - listagem", path: "mentores_-_listagem/code.html" },
+            { title: "Mentor - perfil", path: "mentor_-_perfil/code.html" },
+            { title: "Selecao de pacote", path: "mentoria_-_seleção_de_pacote/code.html" },
+            { title: "Selecao de horario", path: "mentoria_-_seleção_de_horário/code.html" },
+            { title: "Checkout", path: "mentoria_-_checkout/code.html" },
+            { title: "Confirmacao", path: "mentoria_-_confirmação/code.html" }
+          ]
+        },
+        {
+          id: "conteudos",
+          name: "Conteudos e comunidade",
+          steps: [
+            { title: "Blog interno", path: "blog_ádvena_(conteúdo_interno)_/code.html" },
+            { title: "Noticias externas", path: "notícias_para_imigrantes_(conteúdo_externo)_/code.html" },
+            { title: "Videoteca", path: "videoteca/code.html" },
+            { title: "Trilha intercultural", path: "trilha_intercultural_tekóa/code.html" },
+            { title: "Trilha de sensibilizacao", path: "trilha_de_sensibilização_intercultural/code.html" },
+            { title: "Testes - saude emocional", path: "testes_-_saúde_emocional/code.html" },
+            { title: "Testes - integracao e vida no pais", path: "testes_-_integração_&_vida_no_país/code.html" },
+            { title: "Eventos online - proximos", path: "eventos_online_-_próximos_eventos/code.html" },
+            { title: "Eventos online - anteriores", path: "eventos_online_-_eventos_anteriores/code.html" },
+            { title: "Rede de apoio - listagem", path: "rede_de_apoio_-_listagem/code.html" },
+            { title: "Rede de apoio - perfil", path: "rede_de_apoio_-_perfil_da_instituição/code.html" }
+          ]
+        },
+        {
+          id: "psicologo_profissional",
+          name: "Cadastro e dashboard (psicologo)",
+          steps: [
+            { title: "Escolha de perfil profissional", path: "escolha_de_perfil_profissional/code.html" },
+            { title: "Cadastro (dados essenciais)", path: "cadastro_(dados_essenciais)/code.html" },
+            { title: "Cadastro psicologo - etapa 1.1", path: "cadastro_psicólogo_-_etapa_1_1/code.html" },
+            { title: "Cadastro psicologo - etapa 1.2", path: "cadastro_psicólogo_-_etapa_1_2/code.html" },
+            { title: "Cadastro psicologo - etapa 2.1", path: "cadastro_psicólogo_-_etapa_2_1/code.html" },
+            { title: "Cadastro psicologo - etapa 2.2", path: "cadastro_psicólogo_-_etapa_2_2/code.html" },
+            { title: "Cadastro psicologo - etapa 3.1", path: "cadastro_psicólogo_-_etapa_3_1/code.html" },
+            { title: "Cadastro psicologo - etapa 3.2", path: "cadastro_psicólogo_-_etapa_3_2/code.html" },
+            { title: "Cadastro enviado e status", path: "cadastro_enviado_e_status/code.html" },
+            { title: "Perfil em analise", path: "perfil_em_análise/code.html" },
+            { title: "Perfil em analise (equipe)", path: "perfil_em_análise_pela_equipe/code.html" },
+            { title: "Perfil aprovado Tekoa", path: "perfil_aprovado_tekóa/code.html" },
+            { title: "Status do cadastro profissional", path: "status_de_cadastro_profissional/code.html" },
+            { title: "Boas-vindas ao dashboard", path: "boas-vindas_ao_dashboard_profissional/code.html" },
+            { title: "Dashboard (psicologo)", path: "psicólogo_-_dashboard_home/code.html" },
+            { title: "Agenda", path: "psicólogo_-_agenda/code.html" },
+            { title: "Meus atendimentos", path: "psicólogo_-_meus_atendimentos/code.html" },
+            { title: "Perfil profissional", path: "psicólogo_-_perfil_profissional/code.html" },
+            { title: "Recebimentos", path: "psicólogo_-_recebimentos/code.html" },
+            { title: "Suporte", path: "psicólogo_-_suporte/code.html" },
+            { title: "Videoteca capacitacao", path: "psicólogo_-_videoteca_capacitação/code.html" }
+          ]
+        },
+        {
+          id: "mentor_profissional",
+          name: "Cadastro e dashboard (mentor)",
+          steps: [
+            { title: "Login", path: "mentor_-_login/code.html" },
+            { title: "Cadastro - etapa 1", path: "mentor_-_cadastro_etapa_1/code.html" },
+            { title: "Cadastro - etapa 2", path: "mentor_-_cadastro_etapa_2/code.html" },
+            { title: "Cadastro - etapa 3", path: "mentor_-_cadastro_etapa_3/code.html" },
+            { title: "Confirmacao envio teste", path: "mentor_-_confirmação_envio_teste/code.html" },
+            { title: "Teste final", path: "mentor_-_teste_final/code.html" },
+            { title: "Dashboard home 1", path: "mentor_-_dashboard_home_1/code.html" },
+            { title: "Dashboard home 2", path: "mentor_-_dashboard_home_2/code.html" },
+            { title: "Meus agendamentos 1", path: "mentor_-_meus_agendamentos_1/code.html" },
+            { title: "Meus agendamentos 2", path: "mentor_-_meus_agendamentos_2/code.html" },
+            { title: "Disponibilidade 1", path: "mentor_-_disponibilidade_1/code.html" },
+            { title: "Disponibilidade 2", path: "mentor_-_disponibilidade_2/code.html" },
+            { title: "Recebimentos 1", path: "mentor_-_recebimentos_1/code.html" },
+            { title: "Recebimentos 2", path: "mentor_-_recebimentos_2/code.html" },
+            { title: "Editar perfil 1", path: "mentor_-_editar_perfil_1/code.html" },
+            { title: "Editar perfil 2", path: "mentor_-_editar_perfil_2/code.html" },
+            { title: "Configuracoes 1", path: "mentor_-_configurações_1/code.html" },
+            { title: "Configuracoes 2", path: "mentor_-_configurações_2/code.html" },
+            { title: "Suporte 1", path: "mentor_-_suporte_1/code.html" },
+            { title: "Suporte 2", path: "mentor_-_suporte_2/code.html" },
+            { title: "Logout 1", path: "mentor_-_logout_1/code.html" },
+            { title: "Logout 2", path: "mentor_-_logout_2/code.html" }
+          ]
+        }
+      ];
+
+      const flowListEl = document.getElementById("flowList");
+      const stepListEl = document.getElementById("stepList");
+      const stepTitleEl = document.getElementById("stepTitle");
+      const stepPathEl = document.getElementById("stepPath");
+      const frameEl = document.getElementById("screenFrame");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const openBtn = document.getElementById("openBtn");
+
+      let state = { flowIndex: 0, stepIndex: 0 };
+
+      function setHash() {
+        const flow = flows[state.flowIndex];
+        const hash = `flow=${encodeURIComponent(flow.id)}&step=${state.stepIndex}`;
+        window.location.hash = hash;
+      }
+
+      function getStateFromHash() {
+        const hash = window.location.hash.replace("#", "");
+        if (!hash) return null;
+        const params = new URLSearchParams(hash);
+        const flowId = params.get("flow");
+        const step = parseInt(params.get("step"), 10);
+        if (!flowId || Number.isNaN(step)) return null;
+        const flowIndex = flows.findIndex((f) => f.id === flowId);
+        if (flowIndex === -1) return null;
+        const stepIndex = Math.max(0, Math.min(step, flows[flowIndex].steps.length - 1));
+        return { flowIndex, stepIndex };
+      }
+
+      function renderFlows() {
+        flowListEl.innerHTML = "";
+        flows.forEach((flow, index) => {
+          const li = document.createElement("li");
+          const btn = document.createElement("button");
+          btn.textContent = flow.name;
+          if (index === state.flowIndex) btn.classList.add("active");
+          btn.addEventListener("click", () => {
+            state = { flowIndex: index, stepIndex: 0 };
+            setHash();
+            render();
+          });
+          li.appendChild(btn);
+          flowListEl.appendChild(li);
+        });
+      }
+
+      function renderSteps() {
+        stepListEl.innerHTML = "";
+        const steps = flows[state.flowIndex].steps;
+        steps.forEach((step, index) => {
+          const li = document.createElement("li");
+          const btn = document.createElement("button");
+          btn.textContent = `${index + 1}. ${step.title}`;
+          if (index === state.stepIndex) btn.classList.add("active");
+          btn.addEventListener("click", () => {
+            state = { ...state, stepIndex: index };
+            setHash();
+            render();
+          });
+          li.appendChild(btn);
+          stepListEl.appendChild(li);
+        });
+      }
+
+      function renderFrame() {
+        const flow = flows[state.flowIndex];
+        const step = flow.steps[state.stepIndex];
+        stepTitleEl.textContent = `${flow.name} - ${step.title}`;
+        stepPathEl.textContent = step.path;
+        const encodedPath = encodeURI(step.path);
+        frameEl.src = encodedPath;
+        openBtn.href = encodedPath;
+        prevBtn.disabled = state.stepIndex === 0;
+        nextBtn.disabled = state.stepIndex === flow.steps.length - 1;
+      }
+
+      function render() {
+        renderFlows();
+        renderSteps();
+        renderFrame();
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (state.stepIndex > 0) {
+          state = { ...state, stepIndex: state.stepIndex - 1 };
+          setHash();
+          render();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const flow = flows[state.flowIndex];
+        if (state.stepIndex < flow.steps.length - 1) {
+          state = { ...state, stepIndex: state.stepIndex + 1 };
+          setHash();
+          render();
+        }
+      });
+
+      window.addEventListener("hashchange", () => {
+        const nextState = getStateFromHash();
+        if (nextState) {
+          state = nextState;
+          render();
+        }
+      });
+
+      const initialState = getStateFromHash();
+      if (initialState) {
+        state = initialState;
+      }
+      render();
+      setHash();
+    </script>
+  </body>
+</html>
+

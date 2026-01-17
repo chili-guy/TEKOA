@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Entrada / Cadastro ou Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2c74e8",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111721",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../../brand.css"/>
+</head>
+<body class="bg-white dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden font-display dark:bg-background-dark">
+<div class="flex flex-col items-center justify-center p-6 pt-16 flex-grow">
+<!-- Logo -->
+<div class="mb-8">
+<svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4Z" fill="#2c74e8"></path>
+<path d="M24 14L34 34H14L24 14Z" fill="white"></path>
+</svg>
+</div>
+<!-- Headline & Body Text -->
+<h1 class="text-[#333D5F] dark:text-gray-200 tracking-tight text-[28px] font-bold leading-tight px-4 text-center pb-3">Apoio emocional e prático para imigrantes.</h1>
+<p class="text-[#333D5F] dark:text-gray-400 text-base font-normal leading-normal pb-8 pt-1 px-4 text-center max-w-md">Conecte-se com especialistas que entendem sua jornada.</p>
+<!-- Button Group -->
+<div class="w-full max-w-sm px-4">
+<div class="flex flex-col items-stretch gap-3">
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] w-full" href="../../boas-vindas_-_onboarding/code.html">
+<span class="truncate">Criar conta</span>
+</a>
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-base font-bold leading-normal tracking-[0.015em] w-full" href="../../boas-vindas_-_onboarding/code.html">
+<span class="truncate">Entrar</span>
+</a>
+</div>
+</div>
+<!-- Divider -->
+<div class="flex items-center w-full max-w-sm px-4 py-6">
+<div class="flex-grow h-px bg-gray-200 dark:bg-gray-700"></div>
+<span class="px-3 text-sm text-gray-500 dark:text-gray-400">ou</span>
+<div class="flex-grow h-px bg-gray-200 dark:bg-gray-700"></div>
+</div>
+<!-- Social Logins -->
+<div class="w-full max-w-sm px-4">
+<div class="flex flex-col items-stretch gap-3">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-transparent text-[#333D5F] dark:text-gray-200 gap-3 border border-gray-200 dark:border-gray-700 text-base font-medium leading-normal">
+<img alt="Apple logo" class="h-5 w-5 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCSQwhmxjYhDLm3unw4d-4avT0-tuUntJI-vwk1WqYeLeAAK1cAbO_zHnQJGqQjAwV0u24LdReM68qzkmN-0nap8DqY3aGToUQDYx8IZkTQnt2MvRSgE2f0vOThl4Ws1_0Ps8MUJGzrNCmbeudrlFrGtfG1R1imCOwjreH8Nb6gSyBA9sTdDrNAjlVyOyPRKsoEbmbwt_mr7Bjt7-BeNHyAZVIMcamq5vZHcGYx-tnoCtST1WRJ3IXfZ5RFLzRFfBI6f0F61buxDs"/>
+<span class="truncate">Continuar com Apple</span>
+</button>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-transparent text-[#333D5F] dark:text-gray-200 gap-3 border border-gray-200 dark:border-gray-700 text-base font-medium leading-normal">
+<img alt="Google logo" class="h-5 w-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5ckSmcX0r5XnCZxB0pP7oOeurFkp-OfDV3bhhjb_dvGovm51DFQz3bytN1trrFTztNkCQonr0ZGkYmcJinz3mnY4s_4yYOtdZPPbchO24fZx0OlGsuWs-noz6AIuqCOzM-KyZhcNxGh7agqIdVXQUOl8Jnwp_MApF26Pp5PoO6WBccorU3yErzi2VjWoZbGjF1NLzA9Jc1-RJAwp7QXNQtL5N8_PIXRyJjA9bLroV-XBVBXE1gSgT0s4q8jU1oIZpb18Zk7d10g"/>
+<span class="truncate">Continuar com Google</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Trust Text -->
+<div class="w-full p-6 text-center">
+<p class="text-xs text-gray-500 dark:text-gray-400">Plataforma segura • Profissionais interculturais</p>
+</div>
+</div>
+</body></html>

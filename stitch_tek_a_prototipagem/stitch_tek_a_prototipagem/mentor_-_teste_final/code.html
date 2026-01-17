@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentor - Teste Final</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                        "brand-dark": "#181411",
+                        "brand-blue": "#0f172a", // Dark Blue for title request
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-brand-dark dark:text-white antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white dark:bg-background-dark shadow-sm">
+<!-- Header: Logo & Progress -->
+<header class="sticky top-0 z-10 bg-white dark:bg-background-dark pt-4 pb-2 px-4">
+<div class="flex items-center justify-center pb-4 relative">
+<!-- Decorative Icon acting as Logo placeholder -->
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">diversity_3</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-brand-dark dark:text-white">Ádvena</span>
+</div>
+</div>
+<!-- Progress Bar Component -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium text-brand-dark dark:text-white">Etapa 5 de 5</span>
+<span class="text-xs font-normal text-gray-500 dark:text-gray-400">80% concluído</span>
+</div>
+<div class="h-2 w-full rounded-full bg-[#e6e0db] dark:bg-gray-700 overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 py-6 flex flex-col gap-8">
+<!-- Intro Section -->
+<div class="flex flex-col gap-2">
+<h1 class="text-brand-blue dark:text-sky-100 text-[32px] font-bold leading-tight tracking-tight">
+                    Teste de Conhecimento
+                </h1>
+<p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Este teste avalia se seu conhecimento está alinhado às necessidades dos usuários da plataforma.
+                </p>
+</div>
+<!-- Area Selection -->
+<div class="flex flex-col gap-3">
+<label class="text-base font-bold text-brand-dark dark:text-white" for="specialty">
+                    Selecione sua área de especialidade
+                </label>
+<div class="relative">
+<select class="w-full appearance-none rounded-xl border border-[#e6e0db] dark:border-gray-600 bg-white dark:bg-gray-800 p-4 pr-12 text-base font-medium text-brand-dark dark:text-white shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" id="specialty">
+<option disabled="" selected="" value="">Toque para selecionar</option>
+<option value="legal">Mentoria Legal &amp; Documentação</option>
+<option value="career">Carreira &amp; Mercado de Trabalho</option>
+<option value="housing">Moradia &amp; Acomodação</option>
+<option value="education">Educação &amp; Idiomas</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="w-full h-px bg-[#e6e0db] dark:bg-gray-700"></div>
+<!-- Questions Section -->
+<form class="flex flex-col gap-8">
+<!-- Question 1 -->
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-brand-dark dark:text-white leading-snug">
+                        1. Qual documento é essencial para trabalhar legalmente neste país sendo um imigrante recém-chegado?
+                    </h3>
+<div class="flex flex-col gap-3">
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q1" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Passaporte válido apenas</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q1" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Visto de turista e comprovante de renda</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q1" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Permissão de Trabalho (Work Permit) ou Visto com autorização</span>
+</label>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-brand-dark dark:text-white leading-snug">
+                        2. Como um mentor deve proceder caso o mentorado relate sofrer discriminação no ambiente de trabalho?
+                    </h3>
+<div class="flex flex-col gap-3">
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q2" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Aconselhar a ignorar para não criar conflitos</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q2" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Orientar sobre canais de denúncia e apoio legal disponíveis</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q2" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Sugerir a mudança imediata de emprego sem aviso prévio</span>
+</label>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="flex flex-col gap-4">
+<h3 class="text-lg font-bold text-brand-dark dark:text-white leading-snug">
+                        3. Para alugar um imóvel, qual é geralmente a garantia mais solicitada pelas imobiliárias locais?
+                    </h3>
+<div class="flex flex-col gap-3">
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q3" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Carta de recomendação de um amigo</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q3" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Depósito Caução ou Fiador local</span>
+</label>
+<label class="group relative flex cursor-pointer items-center rounded-xl border border-[#e6e0db] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:bg-[#f8f7f5] dark:hover:bg-gray-700 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="q3" type="radio"/>
+<span class="material-symbols-outlined text-gray-400 peer-checked:text-primary mr-3 text-[24px]">radio_button_unchecked</span>
+<span class="material-symbols-outlined absolute left-4 hidden text-primary peer-checked:block text-[24px]">check_circle</span>
+<span class="text-base font-medium text-brand-dark dark:text-gray-200">Apenas documento de identidade</span>
+</label>
+</div>
+</div>
+</form>
+</main>
+<!-- Footer Action -->
+<footer class="sticky bottom-0 bg-white dark:bg-background-dark p-4 border-t border-[#e6e0db] dark:border-gray-700">
+<button class="w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+<span>Enviar teste</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+<p class="mt-3 text-center text-xs text-gray-500 dark:text-gray-400">
+                Seu cadastro será analisado pela equipe após o envio.
+            </p>
+</footer>
+<!-- Bottom spacing for scroll comfort -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

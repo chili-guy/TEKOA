@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentoria - Confirmação</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "primary-dark": "#0d3c9e",
+                        "background-light": "#ffffff", /* Ensuring pure white background as requested */
+                        "background-dark": "#101622",
+                        "success-green": "#22c55e",
+                        "highlight-orange": "#f97316",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-200">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl">
+<!-- Header -->
+<header class="flex items-center justify-between px-4 py-4 bg-background-light dark:bg-background-dark z-10">
+<!-- Logo area -->
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">spa</span>
+</div>
+</div>
+<!-- Title -->
+<h1 class="text-primary dark:text-blue-400 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">
+                Agendamento Confirmado
+            </h1>
+</header>
+<!-- Main Content (Scrollable) -->
+<main class="flex-1 flex flex-col items-center overflow-y-auto px-6 pb-24 pt-4">
+<!-- Success Animation/Icon -->
+<div class="flex flex-col items-center justify-center mb-8 animate-fade-in-up">
+<div class="size-24 rounded-full bg-success-green/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-success-green text-[48px]">check_circle</span>
+</div>
+<h2 class="text-success-green font-bold text-2xl text-center leading-tight">
+                    Mentoria agendada<br/>com sucesso!
+                </h2>
+</div>
+<!-- Appointment Card -->
+<div class="w-full bg-white dark:bg-[#1a2230] rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-gray-700 overflow-hidden mb-6">
+<div class="bg-primary/5 dark:bg-primary/10 px-4 py-3 border-b border-primary/10 dark:border-primary/20">
+<p class="text-xs font-semibold text-primary uppercase tracking-wider text-center">Detalhes da Sessão</p>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<!-- Mentor Info -->
+<div class="flex items-center gap-4">
+<div class="relative size-16 shrink-0 rounded-full overflow-hidden border-2 border-white dark:border-gray-600 shadow-sm">
+<img alt="Dr. Ana Silva" class="h-full w-full object-cover" data-alt="Portrait of a professional smiling woman mentor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvGtMqBdnB9OW-qMDeUEJrCIWbBCO1jDM8Z0MGVQFDa_VXstmaaUx7Kl_3rJKrsLg9kiGQ8Cj9Te1QDT3IMhDVPuyxQ_WMPP4iBWAu_-3PJVsy6p5kXLk_29fTrA2FDhrLkdOw8lYWMnmXgb0Pu_nhJsRWUggOMm9YZsR6rapeDP2cdPewdD33KotdXlztJIm_YdAkGPVPVw3qxMDOHPoWCzbdKV3Qvq9z0jQosm0dh5GP4XMeNmjE8iLtSNRghonXFBVTgm3n0_I"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm text-gray-500 dark:text-gray-400">Mentor(a)</span>
+<p class="text-lg font-bold text-[#111318] dark:text-white leading-tight">Dr. Ana Silva</p>
+<span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full w-fit mt-1">Psicologia</span>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-gray-700 w-full my-1"></div>
+<!-- Date and Time -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-[#111318] dark:text-gray-200">
+<div class="flex items-center justify-center size-10 rounded-lg bg-gray-50 dark:bg-gray-800 text-primary">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400">Data e Horário</span>
+<span class="font-semibold text-base">15 de Outubro, 14:00</span>
+</div>
+</div>
+<div class="flex items-center gap-3 text-[#111318] dark:text-gray-200">
+<div class="flex items-center justify-center size-10 rounded-lg bg-gray-50 dark:bg-gray-800 text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400">Duração</span>
+<span class="font-semibold text-base">45 minutos</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Informational Text -->
+<div class="w-full px-2 mb-8 text-center space-y-2">
+<p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                    O link da sessão será enviado por e-mail.
+                </p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">
+                    Também ficará disponível no seu dashboard.
+                </p>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-highlight-orange hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-orange-200 dark:shadow-none transition-transform active:scale-[0.98] flex items-center justify-center gap-2">
+<span>Ir para meu dashboard</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</main>
+<!-- Bottom Navigation -->
+<nav class="absolute bottom-0 w-full bg-white dark:bg-[#1a2230] border-t border-gray-100 dark:border-gray-700 pb-safe pt-2 px-2 z-20">
+<div class="flex justify-around items-end h-16 pb-2">
+<button class="flex flex-col items-center justify-center gap-1 w-full text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform" data-weight="300">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-full text-primary dark:text-blue-400 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] fill-current group-hover:-translate-y-0.5 transition-transform" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[10px] font-bold">Agendar</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-full text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform">menu_book</span>
+<span class="text-[10px] font-medium">Conteúdos</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-full text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

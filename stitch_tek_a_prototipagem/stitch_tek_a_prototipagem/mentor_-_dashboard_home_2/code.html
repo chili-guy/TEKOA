@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Mentor Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                        "advena-blue-dark": "#1e3a8a", // Dark Blue for headers/actions
+                        "advena-blue-med": "#3b82f6", // Medium Blue
+                        "advena-blue-light": "#dbeafe", // Light Blue
+                        "advena-yellow": "#fef3c7", // Soft Yellow
+                        "advena-green": "#d1fae5", // Soft Green
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white font-display">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="flex items-center justify-between bg-white dark:bg-[#1a120b] p-4 sticky top-0 z-20 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-inner" data-alt="Mentor profile avatar picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDw0jpipCavHjwYkfdhuGGXn3B-TpqL11NfRWhcQ5cVa6ctKbxBNdsJ_4lX7XqfvlbrHQS5p9Bs9pfhJBYhtEUERB1_lQIQCCfLDlI3c4SEB_TP-sRvksyApXUp6FR8Q7mewaqEwJWYzRXYXKmHc1QcgIlQGYGaNS7_NRcCHqPljPNJIw8kOml0Sm_ZcT3uFcQgcD6XsZXvmOSeEuILvKokHXUTR9eH4KtLt4WWl_2u9OyPpz3-9ZKmhaZGkCRmDxSajqwDqxx-0uE");'></div>
+<div>
+<h1 class="text-advena-blue-dark dark:text-blue-300 text-xl font-bold leading-tight tracking-tight">Ádvena</h1>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Mentor Dashboard</p>
+</div>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full bg-background-light dark:bg-gray-800 text-[#181411] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">notifications</span>
+</button>
+</header>
+<!-- Greeting Section -->
+<div class="px-4 pt-6 pb-2">
+<h2 class="text-[#181411] dark:text-white text-2xl font-bold leading-tight">Olá, Ricardo</h2>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal mt-1">Você tem novas atualizações hoje.</p>
+</div>
+<!-- Main Content -->
+<main class="flex flex-col gap-4 p-4">
+<!-- Primary Card: Meus Agendamentos -->
+<!-- Laranja Destaque -->
+<div class="w-full relative overflow-hidden rounded-xl bg-primary shadow-lg group transition-transform active:scale-[0.98]">
+<div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-white" style="font-size: 120px;">calendar_month</span>
+</div>
+<div class="p-5 relative z-10 flex flex-col h-full justify-between gap-4 text-white">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-white/80 text-sm font-medium uppercase tracking-wider mb-1">Próxima Sessão</p>
+<h3 class="text-2xl font-bold leading-tight">Meus Agendamentos</h3>
+</div>
+<div class="bg-white/20 backdrop-blur-sm rounded-lg p-2">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_forward</span>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 mt-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white/30" data-alt="Mentee profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxEIsT-H8mWvmm7W5_V_B-hWWlWVgsmru6UBxdMtutKmNhj95WMw3Q5WrOFeFaGcP5xrtCVVNbcy7LJhYqR6M2GNxpm9vI4ptBKxlBVmVbSpTbGJsYYQAatPTXQyIoJx3-2bscAHscr43FmYWx7GQtzIxFSENMIglHxJRW_aDHruwi9NqtDJHUiE6n-pQMr9yq1KtmLeDVH7yRGfNhLsvIIaBMUAegI9p5PdBXYfFmrErLNqFVoUbWPxldy-OPL85rCvIjokDSCxo");'></div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">Maria S. (Mentoria de Carreira)</p>
+<p class="text-white/80 text-xs">Hoje às 14:00 • Online</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Stats Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Solicitações (Amarelo Apoio) -->
+<div class="bg-advena-yellow dark:bg-yellow-900/40 rounded-xl p-4 flex flex-col justify-between aspect-[4/3] relative shadow-sm">
+<div class="absolute top-3 right-3 size-2 bg-red-500 rounded-full animate-pulse"></div>
+<div class="text-yellow-700 dark:text-yellow-200">
+<span class="material-symbols-outlined" style="font-size: 28px;">mark_email_unread</span>
+</div>
+<div>
+<p class="text-yellow-900 dark:text-yellow-100 text-2xl font-bold">3</p>
+<p class="text-yellow-800 dark:text-yellow-200 text-sm font-medium leading-tight">Solicitações Pendentes</p>
+</div>
+</div>
+<!-- Disponibilidade (Verde Suave) -->
+<div class="bg-advena-green dark:bg-green-900/40 rounded-xl p-4 flex flex-col justify-between aspect-[4/3] shadow-sm">
+<div class="text-green-700 dark:text-green-200">
+<span class="material-symbols-outlined" style="font-size: 28px;">schedule</span>
+</div>
+<div>
+<p class="text-green-900 dark:text-green-100 text-sm font-bold truncate">Seg, Qua, Sex</p>
+<p class="text-green-800 dark:text-green-200 text-xs font-medium mt-1">09:00 - 18:00</p>
+</div>
+</div>
+</div>
+<!-- Financial Card (Azul Claro) -->
+<div class="bg-advena-blue-light dark:bg-blue-900/30 rounded-xl p-5 flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-blue-800 dark:text-blue-200 text-xs font-semibold uppercase tracking-wide">Recebimentos</p>
+<p class="text-blue-900 dark:text-blue-100 text-2xl font-bold">R$ 1.450,00</p>
+<p class="text-blue-700 dark:text-blue-300 text-xs">Acumulado este mês</p>
+</div>
+<button class="bg-white dark:bg-blue-800 text-blue-900 dark:text-white text-sm font-bold py-2 px-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    Ver detalhes
+                </button>
+</div>
+<!-- Secondary Actions List -->
+<div class="flex flex-col gap-2 mt-2">
+<!-- Editar Perfil (Azul Médio) -->
+<button class="flex items-center gap-3 p-4 bg-white dark:bg-[#1a120b] rounded-xl shadow-sm active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="bg-blue-100 dark:bg-blue-900/50 p-2 rounded-lg text-blue-600 dark:text-blue-300 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 24px;">edit_square</span>
+</div>
+<span class="text-[#181411] dark:text-white font-medium flex-1 text-left">Editar Perfil</span>
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">chevron_right</span>
+</button>
+<!-- Configurações (Azul Escuro) -->
+<button class="flex items-center gap-3 p-4 bg-white dark:bg-[#1a120b] rounded-xl shadow-sm active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-600 dark:text-slate-300 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 24px;">settings</span>
+</div>
+<span class="text-[#181411] dark:text-white font-medium flex-1 text-left">Configurações de Conta</span>
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">chevron_right</span>
+</button>
+<!-- Suporte (Amarelo) -->
+<button class="flex items-center gap-3 p-4 bg-white dark:bg-[#1a120b] rounded-xl shadow-sm active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="bg-yellow-100 dark:bg-yellow-900/50 p-2 rounded-lg text-yellow-600 dark:text-yellow-300 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 24px;">help</span>
+</div>
+<span class="text-[#181411] dark:text-white font-medium flex-1 text-left">Suporte</span>
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+<!-- Logout -->
+<div class="py-4 text-center">
+<button class="text-advena-blue-dark dark:text-blue-300 font-bold text-sm flex items-center justify-center gap-2 mx-auto py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">logout</span>
+                    Sair da conta
+                </button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-[#1a120b] border-t border-gray-100 dark:border-gray-800 pb-safe pt-2 px-4 z-50">
+<div class="flex justify-between items-center max-w-md mx-auto h-16">
+<!-- Active Item -->
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-primary">
+<span class="material-symbols-outlined filled" style="font-variation-settings: 'FILL' 1; font-size: 24px;">home</span>
+<span class="text-[10px] font-bold">Início</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">calendar_month</span>
+<span class="text-[10px] font-medium">Agenda</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">grid_view</span>
+<span class="text-[10px] font-medium">Mais</span>
+</button>
+</div>
+</nav>
+<!-- Safe area spacing for bottom nav -->
+<div class="h-[env(safe-area-inset-bottom)] bg-white dark:bg-[#1a120b]"></div>
+</div>
+</body></html>

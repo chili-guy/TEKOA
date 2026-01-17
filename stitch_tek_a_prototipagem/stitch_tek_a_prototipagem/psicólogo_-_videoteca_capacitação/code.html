@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Videoteca de Capacitação - Ádvena</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "secondary": "#EAB308", // Yellow for courses
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                        "text-main": "#111318",
+                        "text-muted": "#616f89",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 2px 10px rgba(0, 0, 0, 0.03)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        /* Custom scrollbar hiding for clean UI */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col antialiased selection:bg-primary/20">
+<!-- Header Section -->
+<header class="sticky top-0 z-20 bg-white/90 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800">
+<div class="px-4 py-3 flex items-center justify-between">
+<button aria-label="Voltar" class="flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xs" data-alt="Ádvena Logo Icon">
+                    Á
+                </div>
+<span class="text-primary font-bold text-lg tracking-tight">Ádvena</span>
+</div>
+<div class="size-10"></div> <!-- Spacer for balance -->
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col w-full max-w-md mx-auto pb-24 group/design-root overflow-x-hidden">
+<!-- Page Title -->
+<div class="px-5 pt-4 pb-2">
+<h1 class="text-primary dark:text-blue-400 text-2xl font-bold leading-tight tracking-tight">
+                Videoteca de Capacitação Intercultural
+            </h1>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3 sticky top-[60px] z-10 bg-white dark:bg-background-dark">
+<label class="flex flex-col h-12 w-full shadow-soft rounded-xl">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full bg-[#f0f2f4] dark:bg-gray-800 transition-colors">
+<div aria-hidden="true" class="text-text-muted flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent border-none text-text-main dark:text-white focus:ring-0 placeholder:text-text-muted px-2 text-base font-normal rounded-xl" placeholder="Buscar por tema ou título..."/>
+</div>
+</label>
+</div>
+<!-- Filter Chips -->
+<div class="px-4 py-1">
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<!-- Active Chip -->
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-xl bg-primary text-white shadow-md shadow-primary/20 transition-transform active:scale-95">
+<span class="text-sm font-medium whitespace-nowrap">Todos</span>
+</button>
+<!-- Inactive Chips -->
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-xl bg-[#f0f2f4] dark:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors active:scale-95">
+<span class="text-text-main dark:text-gray-200 text-sm font-medium whitespace-nowrap">Psicologia intercultural</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-xl bg-[#f0f2f4] dark:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors active:scale-95">
+<span class="text-text-main dark:text-gray-200 text-sm font-medium whitespace-nowrap">Saúde mental do imigrante</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-xl bg-[#f0f2f4] dark:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors active:scale-95">
+<span class="text-text-main dark:text-gray-200 text-sm font-medium whitespace-nowrap">Choque cultural</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-xl bg-[#f0f2f4] dark:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors active:scale-95">
+<span class="text-text-main dark:text-gray-200 text-sm font-medium whitespace-nowrap">Técnicas de acolhimento</span>
+</button>
+</div>
+</div>
+<!-- Section Title: Destaques -->
+<div class="px-5 pt-4 pb-2">
+<h2 class="text-lg font-bold text-text-main dark:text-white">Destaques</h2>
+</div>
+<!-- Content Grid -->
+<div class="px-4 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Card 1: Curso -->
+<div class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-gray-800 hover:shadow-lg transition-all cursor-pointer">
+<!-- Image Container -->
+<div class="relative w-full aspect-video bg-gray-100 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A psychologist talking to a patient in a comfortable office setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKquHE2709uF4N2zcHBkuLSuN8VzrdZKccJ4OigGu31a-2TxNSOz3yJJmZWPDRhtx-efo91FfGuKW3drTEpPzBoga7r_WcP2zNSWYWA6RSAAd7kNfvK57mqLVwmVTxrbBztMMQiOgHRbYoVl1-ULLGOTEbl5dRw1BFshIB1SR-efI2FvOn6IYZEqjnzGkWx1AJ6PwFFrakZgC8B5NJS5AKWxj1zK0H0uYaAAM5HCPLwVOd4IZ1XU2EVXhN6R-fEH_d2a9ua45uX-8');">
+</div>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<!-- Play Button Overlay -->
+<div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+<div class="size-10 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl ml-0.5">play_arrow</span>
+</div>
+</div>
+<!-- Duration Badge -->
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-xs font-medium text-white">
+                        4h 30m
+                    </div>
+</div>
+<!-- Content -->
+<div class="p-3 flex flex-col gap-2 flex-1">
+<div class="flex items-start justify-between gap-2">
+<!-- Yellow Badge for Course -->
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs font-bold uppercase tracking-wide">
+                            Curso Completo
+                        </span>
+</div>
+<h3 class="text-text-main dark:text-white font-bold leading-snug line-clamp-2">Introdução à Clínica Intercultural</h3>
+<p class="text-xs text-text-muted mt-auto pt-1">Módulo 1 • Prof. Dr. Silva</p>
+</div>
+</div>
+<!-- Card 2: Aula Rápida -->
+<div class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-gray-800 hover:shadow-lg transition-all cursor-pointer">
+<div class="relative w-full aspect-video bg-gray-100 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Diverse group of people in a meeting discussion" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpOrjdm0hOTacDGXwgItalPMCToMovFpeBSXvtrP-puVGxiIL0PEUZPBmn62IfVpxXqoNBImlD2lk7hw0rJHJc1FzAAlBiUVYfJV_KFVNbYRi-4l-kbQWVAxwmTxU41Dih_p2geQUtWpEc89F1zwOQzl1yYTUzFTkF0ch_Q2yI3JOL3IhkOvFbtStSyYCOoxFTUf-Yo-2C3jmy4s0W7b_m31IVzkM2iTAxHBHjMgkZtdql-6DsbzyYUOC1EGG4-_tNUsh6hULdAfM');">
+</div>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+<div class="size-10 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl ml-0.5">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-xs font-medium text-white">
+                        15 min
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-2 flex-1">
+<div class="flex items-start justify-between gap-2">
+<!-- Blue Badge for Quick Lesson -->
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-blue-100 dark:bg-primary/20 text-primary dark:text-blue-300 text-xs font-bold uppercase tracking-wide">
+                            Aula rápida
+                        </span>
+</div>
+<h3 class="text-text-main dark:text-white font-bold leading-snug line-clamp-2">Lidando com Barreiras Linguísticas</h3>
+<p class="text-xs text-text-muted mt-auto pt-1">Prática • Dra. Mendes</p>
+</div>
+</div>
+<!-- Card 3: Aula Rápida -->
+<div class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-gray-800 hover:shadow-lg transition-all cursor-pointer">
+<div class="relative w-full aspect-video bg-gray-100 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract representation of culture shock with travel elements" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2l8JjzSdC4SjmXCsFvmfMIduuBRhzLn1nx8MGKKQlfnOHV1neAgTh8yCJUpxsqy2nV80UZ3xjlZtuSzFWn10dlJZorSJ17gJ1ZpCLYYgpcdh9QfTheKLf_BPvWTBx8ovqGaHI_8k7twBba7YqX4PxTHL95ZZ6QNF67ujwmTYN8f28XwTDjrCjf6oLbmCbd3ou8BwWw6dDHtTJz7YyeIYCRyEV-RgydKA51wgdCjaVpNz9XyaY963Uyw9GafTsfzJRyFG8UBvIEx8');">
+</div>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+<div class="size-10 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl ml-0.5">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-xs font-medium text-white">
+                        22 min
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-2 flex-1">
+<div class="flex items-start justify-between gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-blue-100 dark:bg-primary/20 text-primary dark:text-blue-300 text-xs font-bold uppercase tracking-wide">
+                            Aula rápida
+                        </span>
+</div>
+<h3 class="text-text-main dark:text-white font-bold leading-snug line-clamp-2">O Luto Migratório: Estágios e Intervenções</h3>
+<p class="text-xs text-text-muted mt-auto pt-1">Teoria • Prof. Souza</p>
+</div>
+</div>
+<!-- Card 4: Curso -->
+<div class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-gray-800 hover:shadow-lg transition-all cursor-pointer">
+<div class="relative w-full aspect-video bg-gray-100 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Two people working together on a laptop in a modern office" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBovF22v-vmnLrHMzyXNs5w6One1JMDfh05i1AnXdwEcR69yx67K5I_Hx0qW-DGCmmSsOYLP-uGiITUmRIePSf6Qy9g9cK-NCsJUjYrq2q8BKoGu9zJoV2xIVUHuQLUoNo7ClexwaUZAqAGI3pkHENg23VaO24-Ls0bkozhRnRhyzmJJ8SxLhwBC3CMsYqPZ6MbQiJ2iLUbxOnr9RXEo6dyj-i1LpDJQlioqcD9IzzgfU1mKUtxdEaLDuGb6utb2ma8xnuwYnf0Avo');">
+</div>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+<div class="size-10 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl ml-0.5">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-xs font-medium text-white">
+                        3h 15m
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-2 flex-1">
+<div class="flex items-start justify-between gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs font-bold uppercase tracking-wide">
+                            Curso Completo
+                        </span>
+</div>
+<h3 class="text-text-main dark:text-white font-bold leading-snug line-clamp-2">Competências Culturais na Prática Clínica</h3>
+<p class="text-xs text-text-muted mt-auto pt-1">Avançado • Equipe Ádvena</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 pb-safe pt-2 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-end max-w-md mx-auto h-[60px] pb-3">
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[26px]">home</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[26px]">calendar_month</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Atendimentos</span>
+</a>
+<!-- Active State -->
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-[28px]">smart_display</span>
+<span class="absolute top-0 right-0 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</div>
+<span class="text-[10px] font-bold text-primary">Videoteca</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[26px]">person</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Perfil</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[26px]">menu</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Mais</span>
+</a>
+</div>
+</nav>
+<!-- Safe area spacing for iOS home indicator -->
+<div class="h-6 w-full bg-white dark:bg-gray-900 fixed bottom-0 z-40"></div>
+</body></html>

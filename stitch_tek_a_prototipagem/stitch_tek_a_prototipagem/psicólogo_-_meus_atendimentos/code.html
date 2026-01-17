@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meus Atendimentos - Psicólogo</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "secondary": "#3b82f6", // Azul médio
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display antialiased pb-24">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-surface-light dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
+<div class="px-4 py-3 flex items-center justify-between">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary flex items-center justify-center text-white font-bold text-xs">Á</div>
+<span class="font-bold text-lg tracking-tight text-[#111318] dark:text-white">Ádvena</span>
+</div>
+<div class="w-10"></div> <!-- Spacer for alignment -->
+</div>
+<!-- Page Title -->
+<div class="px-4 pb-4 pt-2">
+<h1 class="text-2xl font-bold text-[#111318] dark:text-white leading-tight">Meus Atendimentos</h1>
+</div>
+</header>
+<!-- Filters / Segmented Button -->
+<div class="px-4 py-4 sticky top-[120px] z-40 bg-background-light dark:bg-background-dark">
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-white dark:bg-surface-dark p-1 shadow-sm border border-gray-100 dark:border-gray-700">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-sm text-gray-500 dark:text-gray-400 text-sm font-medium transition-all duration-200">
+<span class="truncate">Próximas</span>
+<input checked="" class="invisible w-0 h-0" name="status-filter" type="radio" value="upcoming"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-sm text-gray-500 dark:text-gray-400 text-sm font-medium transition-all duration-200">
+<span class="truncate">Anteriores</span>
+<input class="invisible w-0 h-0" name="status-filter" type="radio" value="past"/>
+</label>
+</div>
+</div>
+<!-- Appointment List -->
+<main class="px-4 space-y-4">
+<!-- Card 1: Today -->
+<div class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-surface-dark p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-gray-800 transition-all hover:shadow-md">
+<!-- Header: Patient Info & Status -->
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="portrait of a young woman smiling" class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Patient Maria Silva portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByM3kibCJs6WyqQVPVgKm8buXJo0-BdT2IL0061jWoVeSGNS5N7g-IOWjhXS_H9k9iE9lYWltcNPDIb95hVA35LcezEVjlzLyyc_NW-xWM5vcmK0hiBmBQGDZa7MXNIAaknF-gQfoojcfJFK_34dbMFDMzjGjCogQzaLPQlmZHyc389OCBYuTf5MrwSuVMfwwLcjzjl_UyLruOHEWWFchujS16BCFPsELysdhadv8gspXnhrbBhi-Z4X73HOKhzFclpChDvv4xW1w"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full"></span>
+</div>
+<div>
+<h3 class="text-[#111318] dark:text-white text-base font-bold leading-tight">Maria Silva</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Terapia Cognitiva</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold leading-normal">
+                    Agendada
+                </span>
+</div>
+<!-- Details: Date, Time, Duration -->
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+<span class="font-medium">Hoje, 24 Out</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<span class="font-medium">14:00</span>
+</div>
+</div>
+<!-- Divider/Duration Note -->
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+<span>Duração estimada: 50 minutos</span>
+</div>
+<!-- Action Button -->
+<button class="w-full flex items-center justify-center rounded-xl h-10 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary dark:text-blue-300 text-sm font-semibold transition-colors mt-1">
+                Ver detalhes
+            </button>
+</div>
+<!-- Card 2: Tomorrow -->
+<div class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-surface-dark p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-gray-800 transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="portrait of a young man with glasses" class="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Patient João Souza portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJbUVs3waUkGkhOAyPnPg-PmVm7_BCJ5etVq93rEAdhL_cPlm8xFmeIMuGYyvTKlIEwiqJ9NWql1h8ZYyydao8Xr1ViRlFSwEdjaVwkB5QlXTVA39NGXqae5lJHWxZg5HF-j49f4iGAVX0MTOzCYbMcbdO0oLoiQOPOJKObP--I5zqtVdVrOMkKiHTe2lLK-LbhiiX2U-zEHEChOj9nuRPmu6cSazyJHrN4mUSqcWZMOunT1D7tKtHscjgxTZkoWXXYOFSNGQI2Ck"/>
+</div>
+<div>
+<h3 class="text-[#111318] dark:text-white text-base font-bold leading-tight">João Souza</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Acompanhamento</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold leading-normal">
+                    Agendada
+                </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+<span class="font-medium">Amanhã, 25 Out</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<span class="font-medium">09:00</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+<span>Duração estimada: 50 minutos</span>
+</div>
+<button class="w-full flex items-center justify-center rounded-xl h-10 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary dark:text-blue-300 text-sm font-semibold transition-colors mt-1">
+                Ver detalhes
+            </button>
+</div>
+<!-- Card 3: Completed (Example of different status) -->
+<div class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-surface-dark p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-gray-800 transition-all opacity-90 hover:opacity-100">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary font-bold text-lg border-2 border-white dark:border-gray-700">
+                            AB
+                        </div>
+</div>
+<div>
+<h3 class="text-[#111318] dark:text-white text-base font-bold leading-tight">Ana Beatriz</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Primeira Consulta</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-secondary dark:text-blue-300 text-xs font-bold leading-normal">
+                    Concluída
+                </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400 text-[20px]">event_available</span>
+<span class="font-medium">Ontem, 23 Out</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400 text-[20px]">schedule</span>
+<span class="font-medium">16:30</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+<span class="material-symbols-outlined text-[16px]">hourglass_bottom</span>
+<span>Sessão de 50 minutos</span>
+</div>
+<button class="w-full flex items-center justify-center rounded-xl h-10 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 text-sm font-semibold transition-colors mt-1">
+                Ver resumo
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-safe pt-2 px-6 z-50">
+<div class="flex justify-between items-end pb-4"> <!-- Added pb-4 to give space from bottom edge -->
+<button class="flex flex-col items-center gap-1 min-w-[64px] group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">home</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Início</span>
+</button>
+<button class="flex flex-col items-center gap-1 min-w-[64px] group">
+<div class="relative">
+<span class="material-symbols-outlined text-primary icon-filled">calendar_month</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+</span>
+</div>
+<span class="text-[10px] font-bold text-primary">Atendimentos</span>
+</button>
+<button class="flex flex-col items-center gap-1 min-w-[64px] group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">person</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Perfil</span>
+</button>
+<button class="flex flex-col items-center gap-1 min-w-[64px] group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">grid_view</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Mais</span>
+</button>
+</div>
+</nav>
+<!-- iOS Safe Area Padding Shim for bottom scroll -->
+<div class="h-6"></div>
+</body></html>

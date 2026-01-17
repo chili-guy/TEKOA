@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentor - Logout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                        "brand-blue-dark": "#0f172a", // Dark Blue for text
+                        "brand-blue-medium": "#3b82f6", // Medium Blue for secondary button
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-white text-slate-900 font-display selection:bg-primary/20">
+<div class="relative flex h-screen w-full flex-col items-center justify-center bg-white overflow-hidden p-6">
+<!-- Main Content Container -->
+<div class="w-full max-w-sm flex flex-col items-center gap-8 animate-fade-in-up">
+<!-- Logo Section -->
+<div class="flex flex-col items-center justify-center mb-4">
+<div class="h-16 w-16 bg-gradient-to-br from-primary to-orange-400 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-orange-100" data-alt="Ádvena Logo abstract symbol">
+<span class="material-symbols-outlined text-white text-4xl">flight_takeoff</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight text-brand-blue-dark">Ádvena</h2>
+</div>
+<!-- Text Content -->
+<div class="text-center space-y-2">
+<h1 class="text-brand-blue-dark tracking-tight text-[32px] font-bold leading-tight">Sair da Conta</h1>
+<p class="text-slate-600 text-lg font-normal leading-normal px-4">Tem certeza que deseja sair?</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex w-full gap-4 mt-4">
+<!-- Cancel Button (Não) -->
+<!-- Using Medium Blue as requested, but often 'No' is secondary/neutral. 
+                     Adhering to prompt: "Não (Azul Médio)" -->
+<button class="flex-1 flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-brand-blue-medium hover:bg-blue-600 active:scale-95 transition-all duration-200 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-sm">
+<span class="truncate">Não</span>
+</button>
+<!-- Logout Button (Sim) -->
+<!-- Using Highlight Orange as requested for Primary Action -->
+<button class="flex-1 flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary hover:bg-orange-600 active:scale-95 transition-all duration-200 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-md shadow-orange-200">
+<span class="truncate">Sim</span>
+</button>
+</div>
+</div>
+<!-- Decorative background elements (Subtle) -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-blue-medium/5 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+</body></html>

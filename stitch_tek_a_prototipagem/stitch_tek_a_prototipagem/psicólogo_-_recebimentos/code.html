@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Recebimentos</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f49bd", // Deep Blue
+                        "primary-dark": "#0a348a",
+                        "secondary-green": "#e6f4ea", // Soft Green Background
+                        "text-green": "#137333", // Darker Green Text
+                        "background-light": "#ffffff",
+                        "background-dark": "#101622",
+                        "text-main": "#111318",
+                        "text-muted": "#616f89",
+                        "border-color": "#dbdfe6",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-text-main dark:text-white pb-24">
+<!-- Header Section -->
+<header class="sticky top-0 z-10 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800">
+<div class="px-4 pt-4 pb-2">
+<div class="flex items-center h-12 justify-between">
+<button aria-label="Voltar" class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-text-main dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-size: 20px;">psychology</span>
+</div>
+<span class="font-bold text-primary dark:text-blue-400 tracking-tight">Ádvena</span>
+</div>
+<div class="size-10"></div> <!-- Spacer for alignment -->
+</div>
+<div class="mt-4 mb-2">
+<h1 class="text-primary dark:text-white text-[28px] font-bold leading-tight tracking-tight">Meus Recebimentos</h1>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-col gap-6 p-4">
+<!-- Balance Card -->
+<section class="w-full">
+<div class="flex flex-col items-stretch justify-start rounded-2xl bg-secondary-green dark:bg-green-900/20 p-6 shadow-sm border border-green-100 dark:border-green-800 relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute -right-8 -top-8 size-32 rounded-full bg-green-200/50 dark:bg-green-800/20 blur-2xl"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<p class="text-text-green dark:text-green-300 text-sm font-medium leading-normal flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">account_balance_wallet</span>
+                            Saldo Disponível
+                        </p>
+<button class="text-text-green dark:text-green-300 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
+</button>
+</div>
+<p class="text-text-main dark:text-white text-3xl font-bold leading-tight tracking-[-0.02em] mt-2">R$ 4.350,00</p>
+<div class="mt-4 pt-4 border-t border-green-200 dark:border-green-800/50 flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+<p class="text-text-muted dark:text-gray-400 text-sm font-normal">Próximo repasse: <strong>05/11</strong></p>
+<button class="flex items-center justify-center rounded-full h-9 px-5 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-medium shadow-md shadow-blue-500/20">
+                            Solicitar Saque
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Banking Details (Action Panel) -->
+<section>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-border-color dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex size-10 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-text-muted dark:text-gray-300">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-main dark:text-white text-base font-bold leading-tight">Dados Bancários</p>
+<p class="text-text-muted dark:text-gray-400 text-sm font-normal">Banco XP • Ag 0001 • CC ***45-9</p>
+</div>
+</div>
+<button class="self-end sm:self-center flex min-w-[84px] cursor-pointer items-center justify-center rounded-full h-8 px-4 border border-primary text-primary dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-sm font-medium transition-colors">
+                    Editar
+                </button>
+</div>
+</section>
+<!-- Transaction History -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between pb-2 pt-2">
+<h3 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Histórico de Repasses</h3>
+<button class="text-primary dark:text-blue-400 text-sm font-semibold hover:underline">Ver tudo</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="flex gap-4 items-center bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-transparent dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors">
+<div class="shrink-0 flex items-center justify-center size-10 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-main dark:text-white text-base font-semibold leading-normal">Sessão - Ana Paula</p>
+<div class="flex items-center gap-2">
+<p class="text-text-muted dark:text-gray-400 text-xs font-normal">24 Out • 14:00</p>
+<span class="text-gray-300 dark:text-gray-600">•</span>
+<span class="text-green-600 dark:text-green-400 text-xs font-medium bg-green-100 dark:bg-green-900/50 px-2 py-0.5 rounded-full">Pago</span>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-text-main dark:text-white text-base font-bold">+ R$ 150,00</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-center bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-transparent dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors">
+<div class="shrink-0 flex items-center justify-center size-10 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-main dark:text-white text-base font-semibold leading-normal">Sessão - Carlos M.</p>
+<div class="flex items-center gap-2">
+<p class="text-text-muted dark:text-gray-400 text-xs font-normal">23 Out • 16:30</p>
+<span class="text-gray-300 dark:text-gray-600">•</span>
+<span class="text-green-600 dark:text-green-400 text-xs font-medium bg-green-100 dark:bg-green-900/50 px-2 py-0.5 rounded-full">Pago</span>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-text-main dark:text-white text-base font-bold">+ R$ 200,00</p>
+</div>
+</div>
+<!-- Item 3 (Pending) -->
+<div class="flex gap-4 items-center bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-transparent dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors opacity-80">
+<div class="shrink-0 flex items-center justify-center size-10 rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-main dark:text-white text-base font-semibold leading-normal">Sessão - Grupo Terapêutico</p>
+<div class="flex items-center gap-2">
+<p class="text-text-muted dark:text-gray-400 text-xs font-normal">23 Out • 09:00</p>
+<span class="text-gray-300 dark:text-gray-600">•</span>
+<span class="text-orange-600 dark:text-orange-400 text-xs font-medium bg-orange-100 dark:bg-orange-900/50 px-2 py-0.5 rounded-full">Processando</span>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-text-muted dark:text-gray-400 text-base font-bold">+ R$ 450,00</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex gap-4 items-center bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-transparent dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-colors">
+<div class="shrink-0 flex items-center justify-center size-10 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-main dark:text-white text-base font-semibold leading-normal">Sessão - Julia R.</p>
+<div class="flex items-center gap-2">
+<p class="text-text-muted dark:text-gray-400 text-xs font-normal">21 Out • 11:00</p>
+<span class="text-gray-300 dark:text-gray-600">•</span>
+<span class="text-green-600 dark:text-green-400 text-xs font-medium bg-green-100 dark:bg-green-900/50 px-2 py-0.5 rounded-full">Pago</span>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-text-main dark:text-white text-base font-bold">+ R$ 150,00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 px-6 pb-6 pt-3 z-50">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<!-- Início -->
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors" style="font-size: 24px;">home</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Início</span>
+</button>
+<!-- Atendimentos -->
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors" style="font-size: 24px;">calendar_month</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Agenda</span>
+</button>
+<!-- Perfil (Active) -->
+<button class="flex flex-col items-center gap-1 w-16 text-primary dark:text-blue-400">
+<div class="bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined filled" style="font-size: 24px; font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<span class="text-[10px] font-bold">Perfil</span>
+</button>
+<!-- Mais -->
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors" style="font-size: 24px;">menu</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Mais</span>
+</button>
+</div>
+</nav>
+</body></html>

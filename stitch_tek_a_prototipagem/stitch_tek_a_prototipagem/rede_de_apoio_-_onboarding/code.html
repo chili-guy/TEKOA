@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rede de Apoio - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b6cee",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="font-display mvp-page">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden" style="min-height: 100vh;">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center" data-icon="Placeholder" data-size="24px" data-weight="regular">
+</div>
+<h2 class="text-[#111318] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Ádvena</h2>
+<div class="flex size-12 shrink-0 items-center"></div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-4">
+<div class="flex flex-col items-center">
+<!-- Image Container -->
+<div class="flex w-full max-w-sm grow py-3">
+<div class="flex w-full justify-center">
+<div class="mvp-hero flex items-center justify-center">
+<div class="absolute w-2/3 h-2/3 flex items-center justify-center">
+<svg class="w-full h-full" data-alt="Stylized network graphic with connected nodes" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="yellowGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#FFD700;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#FFC700;stop-opacity:1"></stop>
+</lineargradient>
+<lineargradient id="blueGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#2b6cee;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#1e4a9e;stop-opacity:1"></stop>
+</lineargradient>
+</defs>
+<circle cx="20" cy="25" fill="url(#blueGradient)" r="7"></circle>
+<circle cx="80" cy="25" fill="url(#blueGradient)" r="7"></circle>
+<circle cx="50" cy="50" fill="url(#yellowGradient)" r="10"></circle>
+<circle cx="25" cy="75" fill="url(#blueGradient)" r="7"></circle>
+<circle cx="75" cy="75" fill="url(#blueGradient)" r="7"></circle>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="20" x2="50" y1="25" y2="50"></line>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="80" x2="50" y1="25" y2="50"></line>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="25" x2="50" y1="75" y2="50"></line>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="75" x2="50" y1="75" y2="50"></line>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="20" x2="25" y1="25" y2="75"></line>
+<line stroke="#2b6cee" stroke-dasharray="4 2" stroke-width="2" x1="80" x2="75" y1="25" y2="75"></line>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Headline Text -->
+<h1 class="mvp-title px-4 pb-3 pt-6">Rede de Apoio ao Imigrante</h1>
+<!-- Body Text -->
+<p class="mvp-body pb-3 pt-1 px-4 max-w-md">Encontre instituições, consulados, serviços, cursos de idioma e recursos úteis para sua jornada.</p>
+</div>
+<!-- Single Button -->
+<div class="flex px-4 py-3 justify-center">
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]" href="../testes_online_-_onboarding/code.html">
+<span class="truncate">Continuar</span>
+</a>
+</div>
+</div>
+</div>
+</body></html>

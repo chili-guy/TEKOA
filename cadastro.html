@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro - Advena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="full-screen">
+    <main class="page">
+<div class="phone-body">
+            <div class="nav">
+              <a class="link-reset back" href="entrada.html">←</a>
+              <span class="nav-title">Advena</span>
+            </div>
+            <div class="stepper">
+              <span>Passo 1 de 2</span>
+              <div class="step-track">
+                <span class="step-bar"></span>
+              </div>
+            </div>
+            <h2>Crie sua conta</h2>
+            <p class="muted">
+              Vamos começar com algumas informações essenciais.
+            </p>
+            <div class="form">
+              <label>Nome completo</label>
+              <input placeholder="Digite seu nome completo" data-register-name />
+              <label>E-mail</label>
+              <input
+                type="email"
+                placeholder="seuemail@exemplo.com"
+                data-register-email
+              />
+              <label>Telefone / WhatsApp</label>
+              <input placeholder="+1 (555) 000-0000" data-register-phone />
+              <label>País onde reside</label>
+              <input placeholder="Digite o país" data-register-country />
+              <label>Documento (Passaporte)</label>
+              <input placeholder="Apenas o número" data-register-passport />
+              <label>Idade</label>
+              <input
+                class="select"
+                placeholder="Selecione sua idade"
+                data-register-age
+              />
+              <label>Gênero (Opcional)</label>
+              <input
+                class="select"
+                placeholder="Selecione seu gênero"
+                data-register-gender
+              />
+              <label>Senha</label>
+              <input
+                type="password"
+                placeholder="Crie uma senha"
+                data-register-password
+              />
+            </div>
+            <button class="btn btn-primary" type="button" data-register-submit>
+              Continuar
+            </button>
+            <p class="tiny muted" data-register-status></p>
+          </div>
+</main>
+    <script src="script.js"></script>
+  </body>
+</html>
+

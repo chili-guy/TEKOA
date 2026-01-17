@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Seleção de Horário</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "primary-dark": "#0a2a70",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'top': '0 -4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for clean UI */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111318] antialiased">
+<!-- Mobile Wrapper -->
+<div class="relative flex h-screen w-full flex-col bg-white overflow-hidden max-w-md mx-auto shadow-2xl">
+<!-- Header -->
+<header class="flex items-center justify-between px-4 py-4 bg-white z-20">
+<button aria-label="Voltar" class="flex items-center justify-center size-10 rounded-full text-primary-dark hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center justify-center">
+<div class="flex items-center gap-1 mb-0.5">
+<!-- Logo Placeholder -->
+<div class="size-4 rounded-full bg-gradient-to-tr from-primary to-blue-400" data-alt="Abstract circle gradient representing the Ádvena logo"></div>
+<span class="text-xs font-bold tracking-widest text-primary uppercase">Ádvena</span>
+</div>
+<h1 class="text-primary-dark text-lg font-bold leading-tight">Selecionar Horário</h1>
+</div>
+<!-- Spacer to balance the back button -->
+<div class="size-10"></div>
+</header>
+<!-- Scrollable Main Content -->
+<main class="flex-1 overflow-y-auto scrollbar-hide pb-4">
+<!-- Calendar Section -->
+<section class="px-4 pb-4">
+<div class="bg-white rounded-2xl">
+<!-- Month Navigation -->
+<div class="flex items-center justify-between py-4 px-2">
+<button class="text-[#111318] flex size-10 items-center justify-center rounded-full hover:bg-slate-50">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<p class="text-primary-dark text-base font-bold leading-tight">Outubro 2023</p>
+<button class="text-[#111318] flex size-10 items-center justify-center rounded-full hover:bg-slate-50">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Days Grid -->
+<div class="grid grid-cols-7 gap-y-1 mb-2">
+<!-- Weekdays -->
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">D</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">S</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">T</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">Q</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">Q</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">S</span></div>
+<div class="flex flex-col items-center pb-2"><span class="text-xs font-bold text-gray-400">S</span></div>
+<!-- Days -->
+<!-- Previous Month days (empty/disabled) -->
+<div class="h-10 w-full"></div>
+<div class="h-10 w-full"></div>
+<div class="h-10 w-full"></div>
+<!-- Current Month -->
+<button class="h-10 w-full text-gray-400 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full">1</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">2</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">3</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">4</div></button>
+<!-- Selected Day -->
+<button class="h-10 w-full text-white text-sm font-bold shadow-md shadow-blue-200 rounded-full">
+<div class="flex size-full items-center justify-center rounded-full bg-primary">5</div>
+</button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">6</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">7</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">8</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">9</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">10</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">11</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">12</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">13</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">14</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">15</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">16</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">17</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">18</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">19</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">20</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">21</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">22</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">23</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">24</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">25</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">26</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">27</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">28</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">29</div></button>
+<button class="h-10 w-full text-gray-800 text-sm font-medium"><div class="flex size-full items-center justify-center rounded-full hover:bg-blue-50">30</div></button>
+</div>
+</div>
+</section>
+<div class="h-px bg-gray-100 mx-6 mb-6"></div>
+<!-- Time Slots Section -->
+<section class="px-4">
+<h2 class="text-primary-dark text-lg font-bold leading-tight px-2 pb-4">Horários disponíveis</h2>
+<div class="grid grid-cols-3 gap-3 px-2">
+<!-- Morning -->
+<div class="col-span-3 pb-1 pt-1">
+<p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Manhã</p>
+</div>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">08:00</p>
+</button>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">09:00</p>
+</button>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">10:30</p>
+</button>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">11:00</p>
+</button>
+<!-- Afternoon -->
+<div class="col-span-3 pb-1 pt-4">
+<p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Tarde</p>
+</div>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">13:00</p>
+</button>
+<!-- Selected Time -->
+<button class="flex h-10 items-center justify-center gap-x-2 rounded-full bg-primary border border-primary shadow-md shadow-blue-200 active:scale-95 transition-all">
+<p class="text-white text-sm font-bold">14:30</p>
+<span class="material-symbols-outlined text-[16px] text-white">check</span>
+</button>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">16:00</p>
+</button>
+<button class="group flex h-10 items-center justify-center gap-x-2 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:bg-blue-50 active:scale-95 transition-all">
+<p class="text-gray-700 text-sm font-semibold group-hover:text-primary">17:30</p>
+</button>
+</div>
+</section>
+<!-- Spacer for bottom nav and button -->
+<div class="h-32"></div>
+</main>
+<!-- Fixed Action Button (Sticky Footer) -->
+<div class="fixed bottom-[80px] w-full max-w-md px-6 py-4 bg-gradient-to-t from-white via-white to-transparent pointer-events-none z-30">
+<button class="pointer-events-auto flex w-full cursor-pointer items-center justify-center rounded-full h-12 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-blue-600/30 hover:bg-blue-700 active:scale-[0.98] transition-all">
+                Agendar mentoria
+            </button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 z-40 w-full max-w-md bg-white border-t border-gray-100 flex justify-around items-center px-2 pb-5 pt-3 text-xs font-medium text-gray-400">
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">home</span>
+<span class="group-hover:text-primary transition-colors">Início</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 text-primary">
+<span class="material-symbols-outlined text-[26px] font-bold">calendar_month</span>
+<span class="font-bold">Agendar</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">article</span>
+<span class="group-hover:text-primary transition-colors">Conteúdos</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">person</span>
+<span class="group-hover:text-primary transition-colors">Perfil</span>
+</button>
+</nav>
+</div>
+</body></html>

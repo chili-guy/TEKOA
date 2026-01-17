@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Meus Recebimentos</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "primary-dark": "#d9720b",
+                        "background-light": "#ffffff",
+                        "background-dark": "#221910",
+                        "dark-blue": "#0f172a", // Navy blue requested for title
+                        "soft-green-bg": "#ecfdf5", // Soft green background
+                        "soft-green-text": "#059669", // Soft green text
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "sans": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem", // Requested Rounded-XL
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            font-family: "Public Sans", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white pb-24">
+<!-- Top Header -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm dark:bg-background-dark/95 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-between px-4 pt-4 pb-3">
+<button class="flex items-center justify-center p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[28px]">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Ádvena</span>
+</div>
+<button class="flex items-center justify-center p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-900 dark:text-white transition-colors opacity-0 pointer-events-none">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="px-4 pb-4">
+<h1 class="text-dark-blue dark:text-white text-[28px] leading-tight font-bold">Meus Recebimentos</h1>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-md mx-auto flex flex-col gap-6 p-4">
+<!-- Balance Card -->
+<div class="relative overflow-hidden bg-soft-green-bg dark:bg-emerald-900/20 rounded-xl p-6 shadow-sm border border-emerald-100 dark:border-emerald-900">
+<!-- Decorative background pattern -->
+<div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-emerald-200/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-soft-green-text text-[20px]">account_balance_wallet</span>
+<span class="text-sm font-semibold text-emerald-800 dark:text-emerald-200 uppercase tracking-wide">Saldo Disponível</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-lg font-medium text-emerald-600 dark:text-emerald-400">R$</span>
+<span class="text-4xl font-extrabold text-soft-green-text dark:text-emerald-300 tracking-tight">1.450,00</span>
+</div>
+<p class="text-sm text-emerald-600/80 dark:text-emerald-400/80 mt-1 font-medium">+ R$ 300,00 esta semana</p>
+</div>
+</div>
+<!-- Primary Action -->
+<div>
+<button class="group w-full bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all duration-200 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3">
+<span>Enviar para conta</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-gray-400 mt-3">Disponível em até 2 dias úteis</p>
+</div>
+<!-- Bank Account Panel -->
+<section class="flex flex-col gap-3">
+<h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider px-1">Conta de Destino</h3>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-gray-50 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 shrink-0">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Conta Principal</span>
+<span class="text-slate-900 dark:text-white font-bold text-base font-mono mt-0.5">IBAN **** 4589</span>
+</div>
+</div>
+<button aria-label="Editar conta" class="p-2 text-dark-blue dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</section>
+<!-- History List -->
+<section class="flex flex-col gap-4 mt-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-lg font-bold text-dark-blue dark:text-white">Histórico</h3>
+<button class="text-sm font-semibold text-primary hover:text-primary-dark">Ver todos</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Transaction Item: Processing -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500 shrink-0">
+<span class="material-symbols-outlined text-[20px]">pending</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-bold text-base">Saque Solicitado</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">12 Out • Processando</span>
+</div>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">- R$ 300,00</span>
+</div>
+<!-- Transaction Item: Completed -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 shrink-0">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-bold text-base">Transferência Enviada</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">05 Out • Conta **** 4589</span>
+</div>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">- R$ 1.100,00</span>
+</div>
+<!-- Transaction Item: Income (Example) -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 flex items-center justify-between opacity-80">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 shrink-0">
+<span class="material-symbols-outlined text-[20px]">attach_money</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-bold text-base">Mentoria #4201</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">01 Out • Recebido</span>
+</div>
+</div>
+<span class="font-bold text-green-600 dark:text-green-400">+ R$ 150,00</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 pb-safe-area pt-2 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center px-2 pb-4 pt-1">
+<!-- Home -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[24px]">home</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Início</span>
+</a>
+<!-- Agendamentos -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[24px]">calendar_month</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Agendas</span>
+</a>
+<!-- Placeholder for Center Action (Optional, not requested but common) or just spacing -->
+<!-- Perfil -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[24px]">person</span>
+<span class="text-[10px] font-medium text-gray-400 group-hover:text-primary transition-colors">Perfil</span>
+</a>
+<!-- Mais -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-primary transition-colors text-[24px]">grid_view</span>
+<span class="text-[10px] font-medium text-primary transition-colors">Mais</span>
+</a>
+</div>
+</nav>
+<!-- Safe Area Padding for iOS -->
+<style>
+        .pb-safe-area {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entrada - Advena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="full-screen">
+    <main class="page">
+<div class="phone-body">
+            <div class="brand-mark">
+              <span class="brand-circle"></span>
+              <span class="brand-triangle"></span>
+            </div>
+            <h1>Apoio emocional e prático para imigrantes.</h1>
+            <p>Conecte-se com especialistas que entendem sua jornada.</p>
+            <a class="link-reset button-link" href="cadastro.html">
+              <button class="btn btn-primary" type="button">Criar conta</button>
+            </a>
+            <button class="btn btn-secondary" type="button" data-open-login>
+              Entrar
+            </button>
+            <div class="divider">ou</div>
+            <button class="btn btn-ghost" type="button" data-social="apple">
+              <span class="icon apple"></span>Continuar com Apple
+            </button>
+            <button class="btn btn-ghost" type="button" data-social="google">
+              <span class="icon google"></span>Continuar com Google
+            </button>
+            <p class="tiny muted" data-user-status></p>
+            <p class="footnote">Plataforma segura • Profissionais interculturais</p>
+          </div>
+</main>
+    <div class="modal" data-login-modal>
+      <div class="modal-card">
+        <h3>Entrar</h3>
+        <div class="form">
+          <label>E-mail</label>
+          <input type="email" placeholder="seuemail@exemplo.com" data-login-email />
+          <label>Senha</label>
+          <input type="password" placeholder="Sua senha" data-login-password />
+          <button class="btn btn-primary" type="button" data-login-submit>
+            Entrar
+          </button>
+          <button class="btn btn-secondary" type="button" data-login-close>
+            Cancelar
+          </button>
+          <p class="tiny muted" data-login-status></p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+

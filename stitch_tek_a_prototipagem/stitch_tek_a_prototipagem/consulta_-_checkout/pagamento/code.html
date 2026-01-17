@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Checkout</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for radio button appearance */
+        .payment-radio:checked + div {
+            border-color: #13ec5b;
+            background-color: rgba(19, 236, 91, 0.05);
+        }
+        .payment-radio:checked + div .radio-circle {
+            background-color: #13ec5b;
+            border-color: #13ec5b;
+        }
+        .payment-radio:checked + div .radio-circle::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-100 antialiased selection:bg-primary selection:text-black">
+<div class="relative flex min-h-screen flex-col overflow-hidden pb-[140px]">
+<!-- Header -->
+<header class="sticky top-0 z-20 flex items-center justify-between bg-background-light dark:bg-background-dark px-4 py-4 shadow-sm">
+<button aria-label="Voltar" class="flex size-10 items-center justify-center rounded-full active:bg-gray-200 dark:active:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<!-- Simple Logo Icon Representation -->
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+</div>
+<h1 class="text-lg font-bold text-[#0A2540] dark:text-white">Pagamento</h1>
+</div>
+<!-- Spacer to balance header -->
+<div class="size-10"></div>
+</header>
+<main class="flex flex-col gap-6 px-4 pt-6">
+<!-- Section: Order Summary -->
+<section aria-label="Resumo do pedido">
+<h2 class="mb-4 text-xl font-bold tracking-tight text-[#0A2540] dark:text-white">Resumo do pedido</h2>
+<div class="overflow-hidden rounded-xl bg-white dark:bg-[#1c2e22] shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none">
+<!-- Doctor Card -->
+<div class="flex gap-4 p-4 border-b border-gray-100 dark:border-gray-700">
+<div class="relative aspect-square w-20 shrink-0 overflow-hidden rounded-lg bg-gray-100">
+<img alt="Foto de perfil da Dra. Ana Silva sorrindo em consultório" class="h-full w-full object-cover" data-alt="Foto de perfil da Dra. Ana Silva sorrindo em consultório" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD30BAshqFdbOIy4GohaPdZ45FFo5VE2hjosheGPK5RodyCYVi3xVaOVjcJtF1H8w6c3jozVQp9YyWUAb9Fl0F2-s4pPtdyd5ZSzxdkyQlat2xT8MbIEv2_N3xmXAGGYoCqoF8KXZem09XilgY4Ysyxx501GELwkrLZWXChzEdBHHcK_7eAGIplvBIZj0EyLzH5kNlbYNPrAQz3WJZuSRRGqUJ3EdCi4Pg4HRCaCDsI-8xxIVyR_ZDmoyvFkF1AdjN5iuqboHQ2FC0"/>
+</div>
+<div class="flex flex-col justify-center gap-1">
+<span class="text-xs font-semibold uppercase tracking-wider text-[#61896f] dark:text-[#8abea0]">Psicólogo</span>
+<h3 class="text-lg font-bold leading-tight">Dr. Ana Silva</h3>
+<div class="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>15 Out, 14:00</span>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="flex flex-col gap-3 p-4 bg-gray-50/50 dark:bg-white/5">
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-500 dark:text-gray-400">Pacote Selecionado</span>
+<span class="font-medium">Sessão Individual</span>
+</div>
+<div class="my-1 h-px w-full bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex items-center justify-between text-base">
+<span class="font-semibold text-gray-700 dark:text-gray-200">Total a pagar</span>
+<span class="text-xl font-bold text-[#0A2540] dark:text-primary">R$ 150,00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Payment Methods -->
+<section aria-label="Forma de pagamento">
+<h2 class="mb-4 text-xl font-bold tracking-tight text-[#0A2540] dark:text-white">Forma de pagamento</h2>
+<div class="flex flex-col gap-3">
+<!-- Option 1: Credit Card -->
+<label class="relative cursor-pointer group">
+<input checked="" class="payment-radio peer sr-only" name="payment_method" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:bg-gray-50 dark:border-gray-700 dark:bg-[#1c2e22] dark:hover:bg-[#25382b]">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#0A2540] dark:text-white">Cartão de Crédito</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Pague com segurança</p>
+</div>
+<div class="radio-circle relative size-5 rounded-full border-2 border-gray-300 dark:border-gray-500 transition-colors"></div>
+</div>
+</label>
+<!-- Option 2: PayPal -->
+<label class="relative cursor-pointer group">
+<input class="payment-radio peer sr-only" name="payment_method" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:bg-gray-50 dark:border-gray-700 dark:bg-[#1c2e22] dark:hover:bg-[#25382b]">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#0A2540] dark:text-white">PayPal</p>
+</div>
+<div class="radio-circle relative size-5 rounded-full border-2 border-gray-300 dark:border-gray-500 transition-colors"></div>
+</div>
+</label>
+<!-- Option 3: Apple Pay -->
+<label class="relative cursor-pointer group">
+<input class="payment-radio peer sr-only" name="payment_method" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:bg-gray-50 dark:border-gray-700 dark:bg-[#1c2e22] dark:hover:bg-[#25382b]">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-black dark:bg-white/10 dark:text-white">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#0A2540] dark:text-white">Apple Pay</p>
+</div>
+<div class="radio-circle relative size-5 rounded-full border-2 border-gray-300 dark:border-gray-500 transition-colors"></div>
+</div>
+</label>
+</div>
+</section>
+<!-- Trust Badge -->
+<div class="flex items-center justify-center gap-2 py-2 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="text-sm font-medium">Ambiente Seguro e Criptografado</span>
+</div>
+</main>
+<!-- Sticky Footer CTA -->
+<div class="fixed bottom-[72px] left-0 z-10 w-full px-4 pb-2 pt-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark">
+<button class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 text-base font-bold text-[#102216] shadow-lg shadow-primary/20 transition-transform active:scale-[0.98]">
+<span>Confirmar Pagamento</span>
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 z-20 w-full border-t border-gray-200 bg-white pb-safe pt-2 dark:border-white/10 dark:bg-[#102216]">
+<div class="grid grid-cols-4 items-center justify-items-center">
+<!-- Nav Item 1: Início -->
+<button class="group flex flex-col items-center gap-1 p-2 text-gray-400 transition-colors hover:text-primary dark:text-gray-500">
+<span class="material-symbols-outlined text-[24px] group-hover:animate-pulse">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</button>
+<!-- Nav Item 2: Agendar (Active could be visually distinct, but let's keep it neutral as we are in checkout) -->
+<button class="group flex flex-col items-center gap-1 p-2 text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px] fill-current">calendar_month</span>
+<span class="text-[10px] font-bold">Agendar</span>
+</button>
+<!-- Nav Item 3: Conteúdos -->
+<button class="group flex flex-col items-center gap-1 p-2 text-gray-400 transition-colors hover:text-primary dark:text-gray-500">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="text-[10px] font-medium">Conteúdos</span>
+</button>
+<!-- Nav Item 4: Perfil -->
+<button class="group flex flex-col items-center gap-1 p-2 text-gray-400 transition-colors hover:text-primary dark:text-gray-500">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</div>
+<!-- Safe Area Spacer for iOS Home Indicator -->
+<div class="h-[20px] w-full"></div>
+</nav>
+</div>
+<script>
+        // Simple logic to add interactivity to the radio visual state if needed beyond CSS
+        // Tailwind forms plugin usually handles this, but custom styling helps clarity
+    </script>
+</body></html>

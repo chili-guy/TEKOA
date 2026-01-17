@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ádvena - Disponibilidade do Mentor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1754cf",
+            "primary-dark": "#103d9c",
+            "background-light": "#ffffff",
+            "background-dark": "#111621",
+            "soft-green": "#34d399", /* Emerald 400 - Fresh & Soft */
+            "action-green": "#10b981", /* Emerald 500 - slightly stronger for buttons */
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem", 
+            "lg": "1.5rem", 
+            "xl": "2rem", /* Rounded-XL as requested */
+            "full": "9999px"
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'nav': '0 -4px 20px -2px rgba(0, 0, 0, 0.03)',
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Custom Scrollbar Hiding for clean mobile look */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    /* iOS Safe Area Support */
+    body {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    .safe-top {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  
+<link rel="stylesheet" href="../brand.css"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display flex flex-col h-screen overflow-hidden antialiased selection:bg-primary/20">
+<!-- Header -->
+<header class="flex items-center justify-between px-4 pb-3 pt-2 bg-white dark:bg-[#111621] border-b border-gray-100 dark:border-gray-800 shrink-0 z-20 safe-top">
+<button class="flex items-center justify-center size-10 rounded-full text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<div class="flex items-center gap-2.5">
+<!-- Logo Representation -->
+<div class="flex items-center justify-center size-7 rounded-lg bg-primary/10">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">diversity_3</span>
+</div>
+<h1 class="text-[#0f172a] dark:text-white text-lg font-bold tracking-tight">Disponibilidade</h1>
+</div>
+<!-- Spacer to balance layout -->
+<div class="size-10"></div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32 bg-white dark:bg-background-dark relative w-full">
+<!-- Instructional Text -->
+<div class="px-6 pt-6 pb-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-relaxed text-center">
+        Selecione datas e horários em que você pode atender.
+      </p>
+</div>
+<!-- Calendar Section -->
+<div class="p-4 w-full">
+<div class="bg-white dark:bg-[#1a202c] rounded-xl border border-gray-100 dark:border-gray-800 shadow-soft p-5">
+<!-- Month Navigation -->
+<div class="flex items-center justify-between mb-5 px-1">
+<button class="size-8 flex items-center justify-center rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 text-[#111318] dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 20px;">chevron_left</span>
+</button>
+<span class="text-[#111318] dark:text-white text-base font-bold capitalize">Setembro 2023</span>
+<button class="size-8 flex items-center justify-center rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 text-[#111318] dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 20px;">chevron_right</span>
+</button>
+</div>
+<!-- Days Header -->
+<div class="grid grid-cols-7 gap-1 text-center mb-3">
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">D</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">S</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">T</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">Q</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">Q</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">S</span>
+<span class="text-[11px] font-bold tracking-wide text-gray-400 uppercase">S</span>
+</div>
+<!-- Days Grid -->
+<div class="grid grid-cols-7 gap-y-3 gap-x-1">
+<!-- Previous month days (muted) -->
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-gray-300 dark:text-gray-600 font-normal">28</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-gray-300 dark:text-gray-600 font-normal">29</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-gray-300 dark:text-gray-600 font-normal">30</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-gray-300 dark:text-gray-600 font-normal">31</button>
+<!-- Current month days -->
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">1</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">2</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">3</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">4</button>
+<!-- Selected Active Day -->
+<button class="relative size-9 mx-auto flex items-center justify-center rounded-full text-sm bg-primary text-white font-bold shadow-md shadow-primary/30 transition-transform hover:scale-105">
+                5
+                <span class="absolute -bottom-1 size-1 bg-white rounded-full"></span>
+</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">6</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">7</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">8</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">9</button>
+<button class="size-9 mx-auto flex items-center justify-center rounded-full text-sm text-[#111318] dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">10</button>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-2"></div>
+<!-- Time Selection Section -->
+<div class="px-5 w-full">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-[#111318] dark:text-white tracking-tight">Horários Disponíveis</h3>
+<span class="text-xs font-semibold text-primary bg-blue-50 dark:bg-primary/20 px-2.5 py-1 rounded-full">05 Set, Terça</span>
+</div>
+<!-- Time Chips Grid -->
+<div class="grid grid-cols-4 gap-3">
+<!-- Active/Selected Times -->
+<button class="group relative h-11 w-full rounded-full border border-primary bg-primary text-white text-sm font-semibold shadow-sm transition-all active:scale-95 flex items-center justify-center">
+                08:00
+                <span class="material-symbols-outlined absolute right-1.5 text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">check</span>
+</button>
+<!-- Inactive Times -->
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">09:00</button>
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">10:00</button>
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">11:00</button>
+<!-- Disabled Times -->
+<button class="h-11 w-full rounded-full border border-transparent bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 text-sm font-medium cursor-not-allowed line-through decoration-gray-400/50">13:00</button>
+<!-- More Active Times -->
+<button class="h-11 w-full rounded-full border border-primary bg-primary text-white text-sm font-semibold shadow-sm transition-all active:scale-95">14:00</button>
+<button class="h-11 w-full rounded-full border border-primary bg-primary text-white text-sm font-semibold shadow-sm transition-all active:scale-95">15:00</button>
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">16:00</button>
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">17:00</button>
+<button class="h-11 w-full rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a202c] text-[#111318] dark:text-white text-sm font-medium hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95">18:00</button>
+</div>
+</div>
+<!-- Repetition Option -->
+<div class="px-5 mt-6 w-full">
+<label class="flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-[#1a202c] border border-gray-100 dark:border-gray-800 active:bg-gray-100 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded-full bg-white dark:bg-gray-800 text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-[#111318] dark:text-white">Repetir disponibilidade</span>
+<span class="text-xs text-gray-500">Toda terça-feira</span>
+</div>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors group-hover:bg-gray-300">
+<input class="peer sr-only" type="checkbox"/>
+<span class="h-4 w-4 translate-x-1 rounded-full bg-white transition peer-checked:bg-primary peer-checked:translate-x-6"></span>
+</div>
+</label>
+</div>
+<!-- Primary Action Button (Fixed/Sticky feel inside scroll) -->
+<div class="px-5 mt-8 pb-4 w-full">
+<button class="w-full h-14 rounded-full bg-action-green hover:bg-emerald-600 text-white font-bold text-[17px] shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+            Salvar
+        </button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-[#111621]/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 pb-[env(safe-area-inset-bottom)] z-50 shadow-nav">
+<div class="flex items-center justify-around h-[60px] px-2">
+<!-- Início -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform">home</span>
+<span class="text-[10px] font-medium tracking-tight">Início</span>
+</button>
+<!-- Agendar (Active Context) -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-primary relative">
+<div class="absolute -top-3 bg-primary/10 size-12 rounded-full -z-10 blur-xl opacity-50"></div>
+<span class="material-symbols-outlined text-[26px] font-variation-FILL-1">calendar_month</span>
+<span class="text-[10px] font-bold tracking-tight">Agendar</span>
+</button>
+<!-- Conteúdos -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform">menu_book</span>
+<span class="text-[10px] font-medium tracking-tight">Conteúdos</span>
+</button>
+<!-- Perfil -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-y-0.5 transition-transform">person</span>
+<span class="text-[10px] font-medium tracking-tight">Perfil</span>
+</button>
+</div>
+</nav>
+</body></html>
