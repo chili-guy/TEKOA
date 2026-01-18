@@ -93,77 +93,8 @@
 <span class="material-symbols-outlined text-primary text-xl">event_upcoming</span>
 <h2 class="text-xl font-bold text-[#111318] dark:text-white">Próximos Agendamentos</h2>
 </div>
-<div class="flex flex-col gap-4">
-<!-- Card 1: Psychologist (Orange Accent) -->
-<div class="flex flex-col rounded-xl bg-white dark:bg-gray-800 shadow-[0_2px_12px_rgba(0,0,0,0.08)] overflow-hidden border border-gray-100 dark:border-gray-700">
-<!-- Top Strip -->
-<div class="bg-accent/10 px-4 py-2 flex items-center justify-between border-b border-accent/10">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-<span class="text-accent font-bold text-sm uppercase tracking-wide">Psicólogo</span>
-</div>
-<span class="text-xs font-semibold text-accent/80 bg-accent/10 px-2 py-0.5 rounded-full">Confirmado</span>
-</div>
-<div class="p-4 flex gap-4">
-<!-- Avatar -->
-<div class="w-16 h-16 rounded-xl bg-gray-200 shrink-0 bg-cover bg-center" data-alt="Doctor smiling portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhjci5Eoo7Q3EcSL89fPeaxKOFbO267RfPqjhNZAIQXqRSnlZ5_KzZYRke9W4aiG0AHJfklxTdPsHqh2vaN0QX7Q1f0Sf0YC0D9hlgVdeCa2zQWVTSQcOkq7uxUSC28vqg7kTrojddnU70DzofflnixJ7jipKFaPfPutdpORQ5yz8tfI2XhYhUY7FiYmRkqMTAmPlElAA0NE2rKAvtdekMSG8twFHL3lVWb9Tl0h-gSA-g5HVK5TbBNwq-91rbA9ThS3FA2uxqUUU');">
-</div>
-<div class="flex-1 flex flex-col justify-center">
-<h3 class="text-lg font-bold text-[#111318] dark:text-white leading-tight">Dr. Ana Silva</h3>
-<div class="flex items-center gap-4 mt-2 text-text-sub dark:text-gray-400">
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-lg">calendar_today</span>
-<span class="text-sm font-medium">24 Out</span>
-</div>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-lg">schedule</span>
-<span class="text-sm font-medium">14:00</span>
-</div>
-</div>
-</div>
-</div>
-<div class="px-4 pb-4">
-<button class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-blue-700 active:scale-[0.98] transition-all text-white font-bold text-base shadow-lg shadow-blue-500/20">
-<span class="material-symbols-outlined">videocam</span>
-                            Entrar na Sala
-                        </button>
-</div>
-</div>
-<!-- Card 2: Mentor (Blue Accent) -->
-<div class="flex flex-col rounded-xl bg-white dark:bg-gray-800 shadow-[0_2px_12px_rgba(0,0,0,0.08)] overflow-hidden border border-gray-100 dark:border-gray-700">
-<!-- Top Strip -->
-<div class="bg-secondary/10 px-4 py-2 flex items-center justify-between border-b border-secondary/10">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-<span class="text-secondary font-bold text-sm uppercase tracking-wide">Mentor</span>
-</div>
-<span class="text-xs font-semibold text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">Pendente</span>
-</div>
-<div class="p-4 flex gap-4">
-<!-- Avatar -->
-<div class="w-16 h-16 rounded-xl bg-gray-200 shrink-0 bg-cover bg-center" data-alt="Young man smiling portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrqv8SDHs3qOxidfwhn4KuQmb4jO7idPgJ-joEXCDYJ_lA_bjQQLRDB6Of1iSOEq6Hvcc-kddMbV9ccOofRKnjRizmnaKzeQlDXrtJJZ4QdDE-PruTVrmKbqhUU0xwIlwWXC7LxmeNaMijZF67RrlHLvif4QOeDnxoPYe84mjnsCMpPReoNxNnMMBV7F4fqsPEhUWQ56IuGgwtC0msThyck5cfNeT7q5RL-RJWNnIaGsPVmtlgYihAZJMgYDCR14x38qstu9C3hic');">
-</div>
-<div class="flex-1 flex flex-col justify-center">
-<h3 class="text-lg font-bold text-[#111318] dark:text-white leading-tight">Carlos Souza</h3>
-<div class="flex items-center gap-4 mt-2 text-text-sub dark:text-gray-400">
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-lg">calendar_today</span>
-<span class="text-sm font-medium">26 Out</span>
-</div>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-lg">schedule</span>
-<span class="text-sm font-medium">10:00</span>
-</div>
-</div>
-</div>
-</div>
-<div class="px-4 pb-4">
-<button class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-surface-light dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:scale-[0.98] transition-all text-[#111318] dark:text-white font-bold text-base">
-<span class="material-symbols-outlined">info</span>
-                            Ver Detalhes
-                        </button>
-</div>
-</div>
+<div class="flex flex-col gap-4" data-appointments-upcoming>
+<p class="text-sm text-text-sub dark:text-gray-400">Carregando agendamentos...</p>
 </div>
 </section>
 <!-- Divider -->
@@ -174,50 +105,8 @@
 <span class="material-symbols-outlined text-gray-400 text-xl">history</span>
 <h2 class="text-lg font-bold text-gray-500 dark:text-gray-400">Histórico de Agendamentos</h2>
 </div>
-<div class="flex flex-col gap-3">
-<!-- History Item 1 -->
-<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-gray-800/50 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors">
-<div class="flex gap-3 items-center">
-<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
-<span class="material-symbols-outlined text-xl">check</span>
-</div>
-<div>
-<p class="font-bold text-[#111318] dark:text-white text-sm">Dr. Ana Silva</p>
-<p class="text-xs text-text-sub dark:text-gray-400 mt-0.5">Psicólogo • 15 Out</p>
-</div>
-</div>
-<button class="text-primary font-semibold text-sm px-3 py-1 rounded-lg hover:bg-primary/10">
-                        Ver
-                    </button>
-</div>
-<!-- History Item 2 -->
-<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-gray-800/50 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors">
-<div class="flex gap-3 items-center">
-<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
-<span class="material-symbols-outlined text-xl">check</span>
-</div>
-<div>
-<p class="font-bold text-[#111318] dark:text-white text-sm">Carlos Souza</p>
-<p class="text-xs text-text-sub dark:text-gray-400 mt-0.5">Mentoria • 10 Out</p>
-</div>
-</div>
-<button class="text-primary font-semibold text-sm px-3 py-1 rounded-lg hover:bg-primary/10">
-                        Ver
-                    </button>
-</div>
-<!-- History Item 3 -->
-<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-gray-800/50 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors">
-<div class="flex gap-3 items-center">
-<div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-500">
-<span class="material-symbols-outlined text-xl">close</span>
-</div>
-<div>
-<p class="font-bold text-[#111318] dark:text-white text-sm">Mariana Costa</p>
-<p class="text-xs text-text-sub dark:text-gray-400 mt-0.5">Mentoria • 02 Out</p>
-</div>
-</div>
-<span class="text-red-500 text-xs font-bold bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded">Cancelado</span>
-</div>
+<div class="flex flex-col gap-3" data-appointments-history>
+<p class="text-sm text-text-sub dark:text-gray-400">Carregando histórico...</p>
 </div>
 <!-- "See more" or Secondary Action -->
 <button class="mt-6 w-full py-3 text-primary font-bold text-sm border-2 border-primary/20 rounded-xl hover:bg-primary/5 transition-colors">
