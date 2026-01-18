@@ -613,7 +613,8 @@
 
   const updatePsychologistStatusUI = async () => {
     const statusEl = document.querySelector("[data-psych-status]");
-    if (!statusEl) return;
+    const ctaLabel = document.querySelector("[data-psych-cta-label]");
+    if (!statusEl && !ctaLabel) return;
     const data = await apiRequest("/psychologist-applications/me");
     if (!data?.application) return;
     const statusMap = {
@@ -622,7 +623,15 @@
       review: "Em análise",
       approved: "Aprovado",
     };
-    statusEl.textContent = statusMap[data.application.status] || "Em análise";
+    if (statusEl) {
+      statusEl.textContent = statusMap[data.application.status] || "Em análise";
+    }
+    if (ctaLabel) {
+      ctaLabel.textContent =
+        data.application.status === "approved"
+          ? "Acessar meu dashboard"
+          : "Voltar ao início";
+    }
   };
 
   const initSchedulePicker = () => {
@@ -958,40 +967,12 @@
       return;
     }
 
-    if (action === "psych-start-training") {
+    if (action === "psych-status-cta") {
       event.preventDefault();
-      const result = await apiRequest("/psychologist-applications/me/status", {
-        method: "POST",
-        body: JSON.stringify({ status: "training" }),
-      });
-      if (result?.ok) {
-        setPsychSignup({ status: "training" });
-        window.location.href = "psicologo-trilha.html";
-      }
-      return;
-    }
-
-    if (action === "psych-complete-training") {
-      event.preventDefault();
-      const result = await apiRequest("/psychologist-applications/me/status", {
-        method: "POST",
-        body: JSON.stringify({ status: "review" }),
-      });
-      if (result?.ok) {
-        setPsychSignup({ status: "review" });
-        window.location.href = "psicologo-analise.html";
-      }
-      return;
-    }
-
-    if (action === "psych-go-dashboard") {
-      event.preventDefault();
-      const result = await apiRequest("/psychologist-applications/me/status", {
-        method: "POST",
-        body: JSON.stringify({ status: "approved" }),
-      });
-      if (result?.ok) {
-        setPsychSignup({ status: "approved" });
+      const current = await apiRequest("/psychologist-applications/me");
+      if (current?.application?.status === "approved") {
+        window.location.href = "dashboard.html";
+        return;
       }
       window.location.href = "dashboard.html";
       return;
