@@ -510,6 +510,15 @@
     }
   };
 
+  const renderDashboardGreeting = async () => {
+    const greeting = document.querySelector("[data-dashboard-greeting]");
+    if (!greeting) return;
+    const data = await apiRequest("/me");
+    if (!data?.authenticated) return;
+    const firstName = data.user?.name ? data.user.name.split(" ")[0] : "Olá";
+    greeting.textContent = `Olá, ${firstName}`;
+  };
+
   const handleClick = async (event) => {
     const target = event.target.closest("[data-action]");
     if (!target) return;
@@ -604,6 +613,7 @@
     renderPsychologistProfile();
     renderScheduleSummary();
     renderProfile();
+    renderDashboardGreeting();
   };
 
   document.addEventListener("click", handleClick);
