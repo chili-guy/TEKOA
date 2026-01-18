@@ -940,6 +940,125 @@
     });
   };
 
+  const initPsychAvailability = () => {
+    const calendarGrid = document.querySelector("[data-psych-calendar-grid]");
+    const calendarMonth = document.querySelector("[data-psych-calendar-month]");
+    const timeButtons = Array.from(document.querySelectorAll("[data-psych-time]"));
+    const dayInput = document.querySelector("[data-psych-availability-days]");
+    const timeInput = document.querySelector("[data-psych-availability-times]");
+    if (!calendarGrid && timeButtons.length === 0) return;
+
+    const monthNames = [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ];
+    const stored = getPsychSignup();
+    let selectedDate =
+      stored.availabilityDate || new Date().toISOString().slice(0, 10);
+    let selectedTime = stored.availabilityTime || timeButtons[0]?.dataset.psychTime;
+
+    if (calendarGrid) {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = today.getMonth();
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      if (calendarMonth) {
+        calendarMonth.textContent = `${monthNames[month]} ${year}`;
+      }
+      calendarGrid.innerHTML = "";
+      for (let i = 0; i < firstDay; i += 1) {
+        const spacer = document.createElement("span");
+        spacer.className = "h-12 w-full";
+        calendarGrid.appendChild(spacer);
+      }
+      for (let day = 1; day <= daysInMonth; day += 1) {
+        const dateValue = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+          day
+        ).padStart(2, "0")}`;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.psychDay = dateValue;
+        button.className =
+          "h-12 w-full text-[#111812] text-sm font-medium leading-normal flex items-center justify-center rounded-full bg-[#f0f4f1]";
+        button.textContent = String(day);
+        calendarGrid.appendChild(button);
+      }
+    }
+
+    const dayButtons = Array.from(
+      document.querySelectorAll("[data-psych-day]")
+    );
+
+    const updateInputs = () => {
+      if (dayInput && selectedDate) {
+        dayInput.value = formatFullDate(new Date(`${selectedDate}T00:00:00`));
+      }
+      if (timeInput && selectedTime) {
+        timeInput.value = selectedTime;
+      }
+      setPsychSignup({
+        availabilityDate: selectedDate,
+        availabilityTime: selectedTime,
+      });
+    };
+
+    const updateDayStyles = () => {
+      dayButtons.forEach((btn) => {
+        const isActive = btn.dataset.psychDay === selectedDate;
+        btn.classList.toggle("bg-[#30e84f]", isActive);
+        btn.classList.toggle("text-[#111812]", true);
+        if (isActive) {
+          btn.classList.remove("bg-[#f0f4f1]");
+        } else {
+          btn.classList.add("bg-[#f0f4f1]");
+        }
+      });
+    };
+
+    const updateTimeStyles = () => {
+      timeButtons.forEach((btn) => {
+        const isActive = btn.dataset.psychTime === selectedTime;
+        btn.classList.toggle("bg-[#30e84f]", isActive);
+        btn.classList.toggle("text-[#111812]", true);
+        if (isActive) {
+          btn.classList.remove("bg-[#f0f4f1]");
+        } else {
+          btn.classList.add("bg-[#f0f4f1]");
+        }
+      });
+    };
+
+    dayButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selectedDate = btn.dataset.psychDay;
+        updateDayStyles();
+        updateInputs();
+      });
+    });
+    timeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selectedTime = btn.dataset.psychTime;
+        updateTimeStyles();
+        updateInputs();
+      });
+    });
+
+    updateDayStyles();
+    updateTimeStyles();
+    updateInputs();
+  };
+
   const renderProfile = async () => {
     const nameEl = document.querySelector("[data-user-name]");
     const emailEl = document.querySelector("[data-user-email]");
@@ -1211,6 +1330,7 @@
     initCadastroBackGuard();
     initPhotoUploads();
     updateBottomNavActive();
+    initPsychAvailability();
     renderProfile();
     renderDashboardGreeting();
   };
