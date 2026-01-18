@@ -910,6 +910,33 @@
   };
 
   const handleClick = async (event) => {
+    const backIcon = event.target.closest(".material-symbols-outlined");
+    const backIconLabel = backIcon?.textContent?.trim();
+    if (backIcon && (backIconLabel === "arrow_back" || backIconLabel === "arrow_back_ios_new")) {
+      if (backIcon.closest("a")) return;
+      event.preventDefault();
+      const fallback =
+        backIcon.closest("[data-back-fallback]")?.dataset.backFallback || "dashboard.html";
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = fallback;
+      }
+      return;
+    }
+
+    const backTarget = event.target.closest("[data-icon='ArrowLeft'], [data-back]");
+    if (backTarget && !backTarget.closest("a")) {
+      event.preventDefault();
+      const fallback = backTarget.dataset.backFallback || "dashboard.html";
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = fallback;
+      }
+      return;
+    }
+
     const target = event.target.closest("[data-action]");
     if (!target) return;
     const action = target.dataset.action;
