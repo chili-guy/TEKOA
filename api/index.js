@@ -50,6 +50,7 @@ const defaultStore = () => ({
   events: [],
   eventSignups: [],
   supportOrgs: [],
+  psychologistApplications: [],
 });
 
 function nowIso() {
@@ -256,6 +257,13 @@ async function ensureSchema() {
       website TEXT,
       tags JSONB,
       image_url TEXT
+    );
+    CREATE TABLE IF NOT EXISTS psychologist_applications (
+      id TEXT PRIMARY KEY,
+      user_id TEXT REFERENCES users(id),
+      status TEXT NOT NULL,
+      data JSONB,
+      created_at TIMESTAMPTZ DEFAULT NOW()
     );
   `);
 }
@@ -687,6 +695,114 @@ app.get("/api/psychologists/:id", requireDb, async (req, res) => {
   return res.json(rows[0]);
 });
 
+app.post("/api/psychologist-applications", requireDb, requireAuth, async (req, res) => {
+  const {
+    name,
+    email,
+    phone,
+    country,
+    crp,
+    profession,
+    area,
+    experience,
+    countries,
+    linkedin,
+    bio,
+    availabilityDays,
+    availabilityTimes,
+    pixKey,
+    bankInfo,
+  } = req.body || {};
+  if (!name || !email) {
+    return res.status(400).json({ error: "Informe nome e e-mail." });
+  }
+  const payload = {
+    name,
+    email,
+    phone,
+    country,
+    crp,
+    profession,
+    area,
+    experience,
+    countries,
+    linkedin,
+    bio,
+    availabilityDays,
+    availabilityTimes,
+    pixKey,
+    bankInfo,
+  };
+  const status = "submitted";
+  if (useMemory) {
+    const store = getStore();
+    const application = {
+      id: crypto.randomUUID(),
+      user_id: req.userId,
+      status,
+      data: payload,
+      created_at: nowIso(),
+    };
+    store.psychologistApplications.push(application);
+    saveStore();
+    return res.json({ ok: true, id: application.id, status: application.status });
+  }
+  const id = crypto.randomUUID();
+  await query(
+    "INSERT INTO psychologist_applications (id, user_id, status, data) VALUES ($1,$2,$3,$4)",
+    [id, req.userId, status, JSON.stringify(payload)]
+  );
+  return res.json({ ok: true, id, status });
+});
+
+app.get("/api/psychologist-applications/me", requireDb, requireAuth, async (req, res) => {
+  if (useMemory) {
+    const store = getStore();
+    const application = [...store.psychologistApplications]
+      .filter((item) => item.user_id === req.userId)
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
+    return res.json({ application: application || null });
+  }
+  const { rows } = await query(
+    "SELECT * FROM psychologist_applications WHERE user_id = $1 ORDER BY created_at DESC LIMIT 1",
+    [req.userId]
+  );
+  return res.json({ application: rows[0] || null });
+});
+
+app.post(
+  "/api/psychologist-applications/me/status",
+  requireDb,
+  requireAuth,
+  async (req, res) => {
+    const { status } = req.body || {};
+    const allowed = ["submitted", "training", "review", "approved"];
+    if (!allowed.includes(status)) {
+      return res.status(400).json({ error: "Status inválido." });
+    }
+    if (useMemory) {
+      const store = getStore();
+      const application = [...store.psychologistApplications]
+        .filter((item) => item.user_id === req.userId)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
+      if (!application) return res.status(404).json({ error: "Cadastro não encontrado." });
+      application.status = status;
+      saveStore();
+      return res.json({ ok: true, status });
+    }
+    const { rows } = await query(
+      "SELECT id FROM psychologist_applications WHERE user_id = $1 ORDER BY created_at DESC LIMIT 1",
+      [req.userId]
+    );
+    if (!rows[0]) return res.status(404).json({ error: "Cadastro não encontrado." });
+    await query("UPDATE psychologist_applications SET status = $1 WHERE id = $2", [
+      status,
+      rows[0].id,
+    ]);
+    return res.json({ ok: true, status });
+  }
+);
+
 app.get("/api/packages", requireDb, async (req, res) => {
   if (useMemory) return res.json(getStore().packages);
   const { rows } = await query("SELECT * FROM packages ORDER BY sessions ASC");
@@ -1071,6 +1187,52 @@ app.post("/api/admin/psychologists", requireDb, requireAdmin, async (req, res) =
   return res.json({ ok: true, id: psyId });
 });
 
+app.get("/api/admin/psychologist-applications", requireDb, requireAdmin, async (req, res) => {
+  if (useMemory) {
+    const store = getStore();
+    return res.json(store.psychologistApplications);
+  }
+  const { rows } = await query(
+    "SELECT id, user_id, status, data, created_at FROM psychologist_applications ORDER BY created_at DESC"
+  );
+  return res.json(rows);
+});
+
+app.put(
+  "/api/admin/psychologist-applications/:id",
+  requireDb,
+  requireAdmin,
+  async (req, res) => {
+    const { status } = req.body || {};
+    const allowed = ["submitted", "training", "review", "approved"];
+    if (!allowed.includes(status)) {
+      return res.status(400).json({ error: "Status inválido." });
+    }
+    if (useMemory) {
+      const store = getStore();
+      const application = store.psychologistApplications.find(
+        (item) => item.id === req.params.id
+      );
+      if (!application) return res.status(404).json({ error: "Cadastro não encontrado." });
+      application.status = status;
+      saveStore();
+      return res.json({ ok: true, status });
+    }
+    const existing = await query(
+      "SELECT id FROM psychologist_applications WHERE id = $1",
+      [req.params.id]
+    );
+    if (!existing.rows[0]) {
+      return res.status(404).json({ error: "Cadastro não encontrado." });
+    }
+    await query("UPDATE psychologist_applications SET status=$1 WHERE id=$2", [
+      status,
+      req.params.id,
+    ]);
+    return res.json({ ok: true, status });
+  }
+);
+
 app.get("/api/admin/stats", requireDb, requireAdmin, async (req, res) => {
   if (useMemory) {
     const store = getStore();
@@ -1082,6 +1244,7 @@ app.get("/api/admin/stats", requireDb, requireAdmin, async (req, res) => {
       events: store.events.length,
       support: store.supportOrgs.length,
       tests: store.tests.length,
+      applications: store.psychologistApplications.length,
     });
   }
   const users = await query("SELECT COUNT(*)::int AS count FROM users");
@@ -1091,6 +1254,9 @@ app.get("/api/admin/stats", requireDb, requireAdmin, async (req, res) => {
   const events = await query("SELECT COUNT(*)::int AS count FROM events");
   const support = await query("SELECT COUNT(*)::int AS count FROM support_orgs");
   const tests = await query("SELECT COUNT(*)::int AS count FROM tests");
+  const applications = await query(
+    "SELECT COUNT(*)::int AS count FROM psychologist_applications"
+  );
   return res.json({
     users: users.rows[0].count,
     blog: blog.rows[0].count,
@@ -1099,6 +1265,7 @@ app.get("/api/admin/stats", requireDb, requireAdmin, async (req, res) => {
     events: events.rows[0].count,
     support: support.rows[0].count,
     tests: tests.rows[0].count,
+    applications: applications.rows[0].count,
   });
 });
 

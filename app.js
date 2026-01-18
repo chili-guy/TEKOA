@@ -1,6 +1,7 @@
 (() => {
   const API = "/api";
   const STORAGE_KEY = "tekoa_selection";
+  const PSYCH_SIGNUP_KEY = "tekoa_psychologist_signup";
 
   const defaultSelection = {
     psychologistId: "psy-1",
@@ -20,6 +21,21 @@
   const setSelection = (patch) => {
     const next = { ...getSelection(), ...patch };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    return next;
+  };
+
+  const getPsychSignup = () => {
+    try {
+      const raw = localStorage.getItem(PSYCH_SIGNUP_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  };
+
+  const setPsychSignup = (patch) => {
+    const next = { ...getPsychSignup(), ...patch };
+    localStorage.setItem(PSYCH_SIGNUP_KEY, JSON.stringify(next));
     return next;
   };
 
@@ -567,6 +583,48 @@
     )}`;
   };
 
+  const renderPsychologistSignup = () => {
+    const data = getPsychSignup();
+    const map = [
+      ["[data-psych-name]", data.name],
+      ["[data-psych-email]", data.email],
+      ["[data-psych-phone]", data.phone],
+      ["[data-psych-country]", data.country],
+      ["[data-psych-crp]", data.crp],
+      ["[data-psych-password]", data.password],
+      ["[data-psych-profession]", data.profession],
+      ["[data-psych-area]", data.area],
+      ["[data-psych-experience]", data.experience],
+      ["[data-psych-countries]", data.countries],
+      ["[data-psych-linkedin]", data.linkedin],
+      ["[data-psych-bio]", data.bio],
+      ["[data-psych-availability-days]", data.availabilityDays],
+      ["[data-psych-availability-times]", data.availabilityTimes],
+      ["[data-psych-pix]", data.pixKey],
+      ["[data-psych-bank]", data.bankInfo],
+    ];
+    map.forEach(([selector, value]) => {
+      const el = document.querySelector(selector);
+      if (el && value !== undefined && value !== null) {
+        el.value = value;
+      }
+    });
+  };
+
+  const updatePsychologistStatusUI = async () => {
+    const statusEl = document.querySelector("[data-psych-status]");
+    if (!statusEl) return;
+    const data = await apiRequest("/psychologist-applications/me");
+    if (!data?.application) return;
+    const statusMap = {
+      submitted: "Cadastro enviado",
+      training: "Trilha obrigatória",
+      review: "Em análise",
+      approved: "Aprovado",
+    };
+    statusEl.textContent = statusMap[data.application.status] || "Em análise";
+  };
+
   const initSchedulePicker = () => {
     const calendarGrid = document.querySelector("[data-calendar-grid]");
     const calendarLabel = document.querySelector("[data-calendar-label]");
@@ -796,6 +854,149 @@
       return;
     }
 
+    if (action === "psych-step-1") {
+      event.preventDefault();
+      const name = document.querySelector("[data-psych-name]")?.value?.trim();
+      const email = document.querySelector("[data-psych-email]")?.value?.trim();
+      const phone = document.querySelector("[data-psych-phone]")?.value?.trim();
+      const country = document.querySelector("[data-psych-country]")?.value?.trim();
+      const crp = document.querySelector("[data-psych-crp]")?.value?.trim();
+      const password = document.querySelector("[data-psych-password]")?.value;
+      if (!name || !email || !password) {
+        showToast("Preencha nome, e-mail e senha.", "error");
+        return;
+      }
+      setPsychSignup({ name, email, phone, country, crp, password });
+      window.location.href = "psicologo-cadastro-2.html";
+      return;
+    }
+
+    if (action === "psych-step-2") {
+      event.preventDefault();
+      const profession = document.querySelector("[data-psych-profession]")?.value?.trim();
+      const area = document.querySelector("[data-psych-area]")?.value?.trim();
+      const experience = document.querySelector("[data-psych-experience]")?.value?.trim();
+      const countries = document.querySelector("[data-psych-countries]")?.value?.trim();
+      const linkedin = document.querySelector("[data-psych-linkedin]")?.value?.trim();
+      const bio = document.querySelector("[data-psych-bio]")?.value?.trim();
+      if (!profession || !area) {
+        showToast("Preencha sua profissão e área de atuação.", "error");
+        return;
+      }
+      setPsychSignup({ profession, area, experience, countries, linkedin, bio });
+      window.location.href = "psicologo-cadastro-3.html";
+      return;
+    }
+
+    if (action === "psych-submit") {
+      event.preventDefault();
+      const terms = document.querySelector("[data-psych-terms]")?.checked;
+      if (!terms) {
+        showToast("Aceite os termos para continuar.", "error");
+        return;
+      }
+      const availabilityDays = document
+        .querySelector("[data-psych-availability-days]")
+        ?.value?.trim();
+      const availabilityTimes = document
+        .querySelector("[data-psych-availability-times]")
+        ?.value?.trim();
+      const pixKey = document.querySelector("[data-psych-pix]")?.value?.trim();
+      const bankInfo = document.querySelector("[data-psych-bank]")?.value?.trim();
+      const signup = setPsychSignup({
+        availabilityDays,
+        availabilityTimes,
+        pixKey,
+        bankInfo,
+        termsAccepted: true,
+      });
+      const authResponse = await fetch(`${API}/me`);
+      const me = await authResponse.json().catch(() => ({}));
+      if (!me?.authenticated) {
+        const register = await apiRequest("/register", {
+          method: "POST",
+          body: JSON.stringify({
+            name: signup.name,
+            email: signup.email,
+            password: signup.password,
+          }),
+        });
+        if (!register?.ok) {
+          const login = await apiRequest("/login", {
+            method: "POST",
+            body: JSON.stringify({
+              email: signup.email,
+              password: signup.password,
+            }),
+          });
+          if (!login?.ok) return;
+        }
+      }
+      const result = await apiRequest("/psychologist-applications", {
+        method: "POST",
+        body: JSON.stringify({
+          name: signup.name,
+          email: signup.email,
+          phone: signup.phone,
+          country: signup.country,
+          crp: signup.crp,
+          profession: signup.profession,
+          area: signup.area,
+          experience: signup.experience,
+          countries: signup.countries,
+          linkedin: signup.linkedin,
+          bio: signup.bio,
+          availabilityDays: signup.availabilityDays,
+          availabilityTimes: signup.availabilityTimes,
+          pixKey: signup.pixKey,
+          bankInfo: signup.bankInfo,
+        }),
+      });
+      if (!result?.ok) return;
+      setPsychSignup({ applicationId: result.id, status: result.status });
+      window.location.href = "psicologo-status.html";
+      return;
+    }
+
+    if (action === "psych-start-training") {
+      event.preventDefault();
+      const result = await apiRequest("/psychologist-applications/me/status", {
+        method: "POST",
+        body: JSON.stringify({ status: "training" }),
+      });
+      if (result?.ok) {
+        setPsychSignup({ status: "training" });
+        window.location.href = "psicologo-trilha.html";
+      }
+      return;
+    }
+
+    if (action === "psych-complete-training") {
+      event.preventDefault();
+      const result = await apiRequest("/psychologist-applications/me/status", {
+        method: "POST",
+        body: JSON.stringify({ status: "review" }),
+      });
+      if (result?.ok) {
+        setPsychSignup({ status: "review" });
+        window.location.href = "psicologo-analise.html";
+      }
+      return;
+    }
+
+    if (action === "psych-go-dashboard") {
+      event.preventDefault();
+      const result = await apiRequest("/psychologist-applications/me/status", {
+        method: "POST",
+        body: JSON.stringify({ status: "approved" }),
+      });
+      if (result?.ok) {
+        setPsychSignup({ status: "approved" });
+      }
+      window.location.href = "dashboard.html";
+      return;
+    }
+
     if (action === "checkout") {
       event.preventDefault();
       const selection = getSelection();
@@ -864,6 +1065,8 @@
     renderPsychologistProfile();
     renderScheduleSummary();
     initSchedulePicker();
+    renderPsychologistSignup();
+    updatePsychologistStatusUI();
     renderProfile();
     renderDashboardGreeting();
   };

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Tekóa - Status do Cadastro</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+<link rel="stylesheet" href="brand.css"/>
+</head>
+  <body class="bg-white text-[#181411] antialiased has-app-frame">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-white justify-between group/design-root overflow-x-hidden app-frame"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div>
+        <div class="flex items-center bg-white p-4 pb-2 justify-between">
+          <h2 class="text-[#181411] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12 pr-12">Cadastro</h2>
+        </div>
+        <h2 class="text-[#181411] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">Recebemos seu cadastro!</h2>
+        <div class="grid grid-cols-[40px_1fr] gap-x-2 px-4">
+          <div class="flex flex-col items-center gap-1 pt-3">
+            <div class="text-[#181411]" data-icon="Check" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+              </svg>
+            </div>
+            <div class="w-[1.5px] bg-[#e6e0db] h-2 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col pt-3 pb-5"><p class="text-[#181411] text-base font-medium leading-normal">Cadastro enviado</p></div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-[1.5px] bg-[#e6e0db] h-2"></div>
+            <div class="text-[#181411]" data-icon="Clock" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"
+                ></path>
+              </svg>
+            </div>
+            <div class="w-[1.5px] bg-[#e6e0db] h-2 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col pt-3 pb-5"><p class="text-[#181411] text-base font-medium leading-normal">Trilha obrigatória</p></div>
+          <div class="flex flex-col items-center gap-1 pb-3">
+            <div class="w-[1.5px] bg-[#e6e0db] h-2"></div>
+            <div class="text-[#181411]" data-icon="Clock" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col pt-3 pb-5"><p class="text-[#181411] text-base font-medium leading-normal">Análise da equipe</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="flex px-4 py-3">
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#f2800d] text-[#181411] text-base font-bold leading-normal tracking-[0.015em]"
+            type="button"
+            data-action="psych-start-training"
+          >
+            <span class="truncate">Iniciar trilha intercultural</span>
+          </button>
+        </div>
+        <div class="flex w-full grow bg-white @container p-4">
+          <div class="w-full gap-1 overflow-hidden bg-white @[480px]:gap-2 aspect-[2/3] rounded-xl flex">
+            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"></div>
+          </div>
+        </div>
+        <div class="h-5 bg-white"></div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
