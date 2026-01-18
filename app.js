@@ -641,7 +641,8 @@
           minute: "2-digit",
           hour12: false,
         }).format(currentDate);
-    let selectedDay = currentDay;
+    const todayValue = new Date().toISOString().slice(0, 10);
+    let selectedDay = todayValue || currentDay;
     let selectedTime = currentTime;
 
     const updateCTA = (nextIso) => {
