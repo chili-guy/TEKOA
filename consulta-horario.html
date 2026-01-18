@@ -115,22 +115,17 @@
 <span class="h-10"></span>
 <!-- Days -->
 <button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-gray-400" disabled="">1</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">2</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">3</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">4</button>
-<!-- Selected Day -->
-<button class="relative flex h-10 w-full items-center justify-center">
-<div class="flex size-9 items-center justify-center rounded-full bg-primary text-white shadow-md shadow-blue-200">
-<span class="text-sm font-bold">5</span>
-</div>
-</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">6</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">7</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">8</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">9</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">10</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">11</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100">12</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-02">2</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-03">3</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-04">4</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-05">5</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-06">6</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-07">7</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-08">8</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-09">9</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-10">10</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-11">11</button>
+<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-12">12</button>
 </div>
 </div>
 </section>
@@ -138,29 +133,25 @@
 <section class="mt-8">
 <h3 class="mb-4 text-lg font-bold text-[#111318]">Horários disponíveis</h3>
 <div class="grid grid-cols-3 gap-3">
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 focus:border-primary focus:bg-primary focus:text-white active:scale-95">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="09:00" type="button">
 <span class="text-sm font-semibold text-[#111318] group-focus:text-white">09:00</span>
 </button>
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 focus:border-primary focus:bg-primary focus:text-white active:scale-95">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="10:00" type="button">
 <span class="text-sm font-semibold text-[#111318] group-focus:text-white">10:00</span>
 </button>
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 focus:border-primary focus:bg-primary focus:text-white active:scale-95">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="11:30" type="button">
 <span class="text-sm font-semibold text-[#111318] group-focus:text-white">11:30</span>
 </button>
-<!-- Selected Time Slot Example -->
-<button class="group relative flex h-12 w-full items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-blue-200 transition-all active:scale-95 ring-2 ring-primary ring-offset-1">
-<span class="text-sm font-bold">14:00</span>
-<div class="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-white text-primary">
-<span class="material-symbols-outlined text-[10px] font-bold">check</span>
-</div>
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="14:00" type="button">
+<span class="text-sm font-semibold text-[#111318] group-focus:text-white">14:00</span>
 </button>
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 focus:border-primary focus:bg-primary focus:text-white active:scale-95">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="15:30" type="button">
 <span class="text-sm font-semibold text-[#111318] group-focus:text-white">15:30</span>
 </button>
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white opacity-50 cursor-not-allowed">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white opacity-50 cursor-not-allowed" disabled="">
 <span class="text-sm font-medium text-gray-400 decoration-slate-400 line-through">16:00</span>
 </button>
-<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 focus:border-primary focus:bg-primary focus:text-white active:scale-95">
+<button class="group flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-primary/50 hover:bg-blue-50 active:scale-95" data-schedule-time="17:00" type="button">
 <span class="text-sm font-semibold text-[#111318] group-focus:text-white">17:00</span>
 </button>
 </div>

@@ -567,6 +567,120 @@
     )}`;
   };
 
+  const initSchedulePicker = () => {
+    const dayButtons = Array.from(
+      document.querySelectorAll("[data-schedule-day]")
+    );
+    const timeButtons = Array.from(
+      document.querySelectorAll("[data-schedule-time]")
+    );
+    const cta = document.querySelector("[data-action='set-schedule']");
+    if (dayButtons.length === 0 && timeButtons.length === 0) return;
+
+    const selection = getSelection();
+    const currentDate = new Date(selection.scheduledAt);
+    const currentDay = Number.isNaN(currentDate.getTime())
+      ? null
+      : currentDate.toISOString().slice(0, 10);
+    const currentTime = Number.isNaN(currentDate.getTime())
+      ? null
+      : new Intl.DateTimeFormat("pt-PT", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(currentDate);
+    let selectedDay = currentDay;
+    let selectedTime = currentTime;
+
+    const updateCTA = (nextIso) => {
+      if (!cta) return;
+      cta.dataset.scheduledAt = nextIso;
+    };
+
+    const markDaySelected = (value) => {
+      dayButtons.forEach((btn) => {
+        const isActive = btn.dataset.scheduleDay === value;
+        btn.classList.toggle("bg-primary", isActive);
+        btn.classList.toggle("text-white", isActive);
+        btn.classList.toggle("shadow-md", isActive);
+        btn.classList.toggle("shadow-blue-200", isActive);
+        btn.classList.toggle("text-[#111318]", !isActive);
+        btn.classList.toggle("hover:bg-gray-100", !isActive);
+      });
+    };
+
+    const markTimeSelected = (value) => {
+      timeButtons.forEach((btn) => {
+        const label = btn.querySelector("span");
+        const isActive = btn.dataset.scheduleTime === value;
+        btn.classList.toggle("bg-primary", isActive);
+        btn.classList.toggle("text-white", isActive);
+        btn.classList.toggle("shadow-md", isActive);
+        btn.classList.toggle("shadow-blue-200", isActive);
+        btn.classList.toggle("ring-2", isActive);
+        btn.classList.toggle("ring-primary", isActive);
+        btn.classList.toggle("ring-offset-1", isActive);
+        btn.classList.toggle("border-gray-200", !isActive);
+        btn.classList.toggle("bg-white", !isActive);
+        if (label) {
+          label.classList.toggle("text-[#111318]", !isActive);
+          label.classList.toggle("text-white", isActive);
+          label.classList.toggle("font-semibold", !isActive);
+          label.classList.toggle("font-bold", isActive);
+        }
+        const existing = btn.querySelector("[data-check]");
+        if (isActive && !existing) {
+          const badge = document.createElement("div");
+          badge.dataset.check = "true";
+          badge.className =
+            "absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-white text-primary";
+          badge.innerHTML =
+            '<span class="material-symbols-outlined text-[10px] font-bold">check</span>';
+          btn.classList.add("relative");
+          btn.appendChild(badge);
+        }
+        if (!isActive && existing) {
+          existing.remove();
+          btn.classList.remove("relative");
+        }
+      });
+    };
+
+    const applySelection = (dateValue, timeValue) => {
+      const date =
+        dateValue || selectedDay || dayButtons[0]?.dataset.scheduleDay;
+      const time =
+        timeValue || selectedTime || timeButtons[0]?.dataset.scheduleTime;
+      if (!date || !time) return;
+      const next = new Date(`${date}T${time}:00`);
+      const nextIso = next.toISOString();
+      selectedDay = date;
+      selectedTime = time;
+      setSelection({ scheduledAt: nextIso });
+      markDaySelected(date);
+      markTimeSelected(time);
+      renderScheduleSummary();
+      updateCTA(nextIso);
+    };
+
+    if (currentDay) markDaySelected(currentDay);
+    if (currentTime) markTimeSelected(currentTime);
+    updateCTA(selection.scheduledAt);
+
+    dayButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applySelection(btn.dataset.scheduleDay, selectedTime);
+      });
+    });
+    timeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applySelection(selectedDay, btn.dataset.scheduleTime);
+      });
+    });
+
+    applySelection(selectedDay, selectedTime);
+  };
+
   const renderProfile = async () => {
     const nameEl = document.querySelector("[data-user-name]");
     const emailEl = document.querySelector("[data-user-email]");
@@ -684,6 +798,7 @@
     renderConfirmation();
     renderPsychologistProfile();
     renderScheduleSummary();
+    initSchedulePicker();
     renderProfile();
     renderDashboardGreeting();
   };
