@@ -568,6 +568,9 @@
   };
 
   const initSchedulePicker = () => {
+    const calendarGrid = document.querySelector("[data-calendar-grid]");
+    const calendarLabel = document.querySelector("[data-calendar-label]");
+    const calendarMonth = document.querySelector("[data-calendar-month]");
     const dayButtons = Array.from(
       document.querySelectorAll("[data-schedule-day]")
     );
@@ -575,7 +578,56 @@
       document.querySelectorAll("[data-schedule-time]")
     );
     const cta = document.querySelector("[data-action='set-schedule']");
-    if (dayButtons.length === 0 && timeButtons.length === 0) return;
+    const today = new Date();
+    const monthNames = [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro",
+    ];
+    if (calendarGrid) {
+      const year = today.getFullYear();
+      const month = today.getMonth();
+      const firstDay = new Date(year, month, 1).getDay();
+      const startOffset = (firstDay + 6) % 7; // Monday-first
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      if (calendarLabel) {
+        calendarLabel.textContent = `${monthNames[month]} ${year}`;
+      }
+      if (calendarMonth) {
+        calendarMonth.textContent = monthNames[month];
+      }
+      calendarGrid.innerHTML = "";
+      for (let i = 0; i < startOffset; i += 1) {
+        const spacer = document.createElement("span");
+        spacer.className = "h-10";
+        calendarGrid.appendChild(spacer);
+      }
+      for (let day = 1; day <= daysInMonth; day += 1) {
+        const dateValue = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+          day
+        ).padStart(2, "0")}`;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.scheduleDay = dateValue;
+        button.className =
+          "flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100";
+        button.textContent = String(day);
+        calendarGrid.appendChild(button);
+      }
+    }
+    const resolvedDayButtons = Array.from(
+      document.querySelectorAll("[data-schedule-day]")
+    );
+    if (resolvedDayButtons.length === 0 && timeButtons.length === 0) return;
 
     const selection = getSelection();
     const currentDate = new Date(selection.scheduledAt);
@@ -598,7 +650,7 @@
     };
 
     const markDaySelected = (value) => {
-      dayButtons.forEach((btn) => {
+      resolvedDayButtons.forEach((btn) => {
         const isActive = btn.dataset.scheduleDay === value;
         btn.classList.toggle("bg-primary", isActive);
         btn.classList.toggle("text-white", isActive);
@@ -648,7 +700,7 @@
 
     const applySelection = (dateValue, timeValue) => {
       const date =
-        dateValue || selectedDay || dayButtons[0]?.dataset.scheduleDay;
+        dateValue || selectedDay || resolvedDayButtons[0]?.dataset.scheduleDay;
       const time =
         timeValue || selectedTime || timeButtons[0]?.dataset.scheduleTime;
       if (!date || !time) return;
@@ -667,7 +719,7 @@
     if (currentTime) markTimeSelected(currentTime);
     updateCTA(selection.scheduledAt);
 
-    dayButtons.forEach((btn) => {
+    resolvedDayButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         applySelection(btn.dataset.scheduleDay, selectedTime);
       });

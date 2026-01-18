@@ -88,7 +88,7 @@
 <section class="mt-4">
 <div class="flex items-center justify-between mb-2">
 <h2 class="text-lg font-bold text-[#111318]">Escolha o dia</h2>
-<span class="text-sm font-medium text-primary">Outubro 2023</span>
+<span class="text-sm font-medium text-primary" data-calendar-label></span>
 </div>
 <!-- Calendar Widget -->
 <div class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
@@ -96,7 +96,7 @@
 <button class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100 text-gray-600">
 <span class="material-symbols-outlined text-xl">chevron_left</span>
 </button>
-<p class="text-base font-bold text-[#111318]">Outubro</p>
+<p class="text-base font-bold text-[#111318]" data-calendar-month></p>
 <button class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100 text-gray-600">
 <span class="material-symbols-outlined text-xl">chevron_right</span>
 </button>
@@ -110,26 +110,7 @@
 <span class="text-xs font-bold text-gray-400">S</span>
 <span class="text-xs font-bold text-gray-400">S</span>
 </div>
-<div class="grid grid-cols-7 gap-y-2">
-<!-- Empty start days -->
-<span class="h-10"></span>
-<span class="h-10"></span>
-<span class="h-10"></span>
-<span class="h-10"></span>
-<!-- Days -->
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-gray-400" disabled="">1</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-02">2</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-03">3</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-04">4</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-05">5</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-06">6</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-07">7</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-08">8</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-09">9</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-10">10</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-11">11</button>
-<button class="flex h-10 w-full items-center justify-center rounded-full text-sm font-medium text-[#111318] hover:bg-gray-100" data-schedule-day="2024-10-12">12</button>
-</div>
+<div class="grid grid-cols-7 gap-y-2" data-calendar-grid></div>
 </div>
 </section>
 <!-- Time Slots Section -->
