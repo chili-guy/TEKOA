@@ -54,8 +54,8 @@
         .safe-bottom-spacing {
             padding-bottom: calc(80px + 64px + env(safe-area-inset-bottom)); 
         }
-        .cta-safe {
-            padding-bottom: calc(80px + 12px + env(safe-area-inset-bottom));
+        .cta-float {
+            bottom: calc(80px + 12px + env(safe-area-inset-bottom));
         }
     </style>
 <style>
@@ -153,13 +153,13 @@
 </div>
 </div>
 </main>
-<!-- Floating Action Button + Bottom Nav Container -->
-<div class="fixed bottom-0 w-full max-w-md z-30">
-<!-- Gradient fade above buttons -->
+<!-- Floating CTA -->
+<div class="fixed left-0 right-0 z-30 w-full max-w-md mx-auto cta-float">
 <div class="h-8 w-full bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-<div class="bg-white px-4 pb-4 pt-0 cta-safe">
-<!-- CTA Button -->
-<a class="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-primary text-base font-bold text-white shadow-lg shadow-blue-200 transition-transform active:scale-[0.98] mb-4" href="consulta-pacote.html" data-action="set-schedule" data-scheduled-at="2024-10-05T14:00:00Z"><span>Agendar consulta</span><span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+<div class="bg-white px-4 pb-4 pt-0">
+<a class="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-primary text-base font-bold text-white shadow-lg shadow-blue-200 transition-transform active:scale-[0.98]" href="consulta-pacote.html" data-action="set-schedule" data-scheduled-at="2024-10-05T14:00:00Z"><span>Agendar consulta</span><span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+</div>
+</div>
 <!-- Bottom Navigation -->
 <nav class="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200 dark:border-white/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm h-20">
   <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
@@ -181,8 +181,5 @@
     </a>
   </div>
 </nav>
-</div>
-</div>
-</div>
   <script src="app.js"></script>
 </body></html>
