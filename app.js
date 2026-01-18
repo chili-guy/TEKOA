@@ -86,12 +86,39 @@
     }).format(date);
   };
 
-  const renderPsychologists = async () => {
+  let psychologistsCache = null;
+
+  const normalizeText = (value) =>
+    (value || "")
+      .toString()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  const renderPsychologists = async (filter = "all") => {
     const container = document.getElementById("psychologists-list");
     if (!container) return;
-    const data = await apiRequest("/psychologists");
-    if (!data) return;
+    if (!psychologistsCache) {
+      const data = await apiRequest("/psychologists");
+      if (!data) return;
+      psychologistsCache = data;
+    }
+    const normalizedFilter = normalizeText(filter);
+    const data =
+      normalizedFilter === "all"
+        ? psychologistsCache
+        : psychologistsCache.filter((item) => {
+            const tags = Array.isArray(item.tags) ? item.tags : [];
+            return tags.some(
+              (tag) => normalizeText(tag).includes(normalizedFilter)
+            );
+          });
     container.innerHTML = "";
+    if (!data || data.length === 0) {
+      container.innerHTML =
+        '<p class="text-sm text-gray-500">Nenhum profissional encontrado.</p>';
+      return;
+    }
     data.forEach((item) => {
       const tags = Array.isArray(item.tags) ? item.tags : [];
       const card = document.createElement("article");
@@ -146,6 +173,46 @@
         </div>
       `;
       container.appendChild(card);
+    });
+  };
+
+  const initPsychologistFilters = () => {
+    const wrapper = document.querySelector("[data-psychologists-filters]");
+    if (!wrapper) return;
+    wrapper.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+      event.preventDefault();
+      const filter = button.dataset.filter || "all";
+      wrapper.querySelectorAll("[data-filter]").forEach((item) => {
+        item.classList.remove("bg-[#111318]", "dark:bg-white");
+        const label = item.querySelector("p");
+        if (label) {
+          label.classList.remove("text-white", "dark:text-[#111318]");
+          label.classList.add("text-[#111318]", "dark:text-white");
+        }
+        item.classList.add(
+          "bg-surface-light",
+          "dark:bg-surface-dark",
+          "border",
+          "border-gray-100",
+          "dark:border-gray-800"
+        );
+      });
+      button.classList.remove(
+        "bg-surface-light",
+        "dark:bg-surface-dark",
+        "border",
+        "border-gray-100",
+        "dark:border-gray-800"
+      );
+      button.classList.add("bg-[#111318]", "dark:bg-white");
+      const label = button.querySelector("p");
+      if (label) {
+        label.classList.remove("text-[#111318]", "dark:text-white");
+        label.classList.add("text-white", "dark:text-[#111318]");
+      }
+      renderPsychologists(filter);
     });
   };
 
@@ -605,6 +672,7 @@
 
   const init = () => {
     renderPsychologists();
+    initPsychologistFilters();
     renderAppointments();
     renderBlog();
     renderNews();
