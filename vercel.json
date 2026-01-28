@@ -1,4 +1,9 @@
 {
+  "rootDirectory": "react",
+  "buildCommand": "npm run build:react",
+  "outputDirectory": "react/dist"
+}
+{
   "version": 2,
   "builds": [
     {

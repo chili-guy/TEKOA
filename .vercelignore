@@ -1,0 +1,12 @@
+node_modules/
+react/node_modules/
+SVGS/
+Tekoa (cópia)/
+identidadevisual/
+*.html
+*.png
+*.svg
+onboarding-*.html
+admin.html
+admin.js
+styles.css
