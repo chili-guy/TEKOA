@@ -5,7 +5,10 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "dev:react": "vite --config react/vite.config.ts --port 5175",
+    "build:react": "vite build --config react/vite.config.ts",
+    "preview:react": "vite preview --config react/vite.config.ts --port 5176"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -13,10 +16,22 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "pg": "^8.11.5",
     "passport": "^0.7.0",
     "passport-apple": "^2.0.2",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.11.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }
-
