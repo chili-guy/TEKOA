@@ -8,7 +8,8 @@
     "dev": "node server.js",
     "dev:react": "vite --config react/vite.config.ts --port 5175",
     "build:react": "vite build --config react/vite.config.ts",
-    "preview:react": "vite preview --config react/vite.config.ts --port 5176"
+    "preview:react": "vite preview --config react/vite.config.ts --port 5176",
+    "vercel-build": "npm run build:react"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
