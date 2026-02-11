@@ -10,7 +10,7 @@ export const BottomNav = ({ active, onSelect }: BottomNavProps): JSX.Element => 
   const inactiveItem = "text-[#897561] hover:text-[#ee8c2b]";
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-20 border-t border-[#ecf1f8] bg-white/95 backdrop-blur-sm h-20">
+    <nav className="fixed bottom-0 left-0 right-0 z-20 border-t border-[#ecf1f8] bg-white h-20">
       <div className="grid h-full max-w-[393px] grid-cols-4 mx-auto font-medium">
         <button
           className={`${baseItem} ${active === "home" ? activeItem : inactiveItem}`}

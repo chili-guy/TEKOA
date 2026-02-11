@@ -7,11 +7,10 @@ import { AppointmentsDetail } from "./AppointmentsDetail";
 import { BlogNewsDetail } from "./BlogNewsDetail";
 import { BlogNewsScreen } from "./BlogNewsScreen";
 import { ChoosePackage } from "./ChoosePackage";
-import { CreateAccount } from "./CreateAccount";
 import { EmotionalHealth } from "./EmotionalHealth";
 import { BlogNews } from "./BlogNews";
 import { ClubWelcome } from "./ClubWelcome";
-import { EssentialDetails } from "./EssentialDetails";
+import EssentialDetails from "./EssentialDetails";
 import { HealthTests } from "./HealthTests";
 import { HelloMaria } from "./HelloMaria";
 import { IntegrationLife } from "./IntegrationLife";
@@ -24,6 +23,10 @@ import { PaymentMethods } from "./PaymentMethods";
 import { PlanSelect } from "./PlanSelect";
 import { ProfileDetails } from "./ProfileDetails";
 import { ProfileScreen } from "./ProfileScreen";
+import { ProfessionalSignup } from "./ProfessionalSignup";
+import { ProfessionalStatus } from "./ProfessionalStatus";
+import { ProfessionalDashboard } from "./ProfessionalDashboard";
+import { RoleSelect } from "./RoleSelect";
 import { SupportMental } from "./SupportMental";
 import { SupportNetwork } from "./SupportNetwork";
 import { SupportNetworkScreen } from "./SupportNetworkScreen";
@@ -49,6 +52,9 @@ const App = () => {
   const [screen, setScreen] = React.useState<
     | "splash"
     | "create-account"
+    | "professional-signup"
+    | "professional-dashboard"
+    | "professional-status"
     | "essential-details"
     | "login"
     | "plan-select"
@@ -79,7 +85,7 @@ const App = () => {
     | "payment-methods"
     | "in-development"
     | "welcome"
-  >("splash");
+  >("create-account");
   const handleStepChange = (index: number) => {
     const next = onboardingSteps[index];
     if (next) {
@@ -105,14 +111,11 @@ const App = () => {
     setScreen("profile");
   };
 
-  if (screen === "splash") {
-    return <Splash onContinue={() => setScreen("create-account")} />;
-  }
-
   if (screen === "create-account") {
     return (
-      <CreateAccount
-        onContinue={() => setScreen("essential-details")}
+      <RoleSelect
+        onPatient={() => setScreen("essential-details")}
+        onProfessional={() => setScreen("professional-signup")}
         onLogin={() => setScreen("login")}
       />
     );
@@ -123,6 +126,32 @@ const App = () => {
       <Login
         onBack={() => setScreen("create-account")}
         onSuccess={() => setScreen("plan-select")}
+      />
+    );
+  }
+
+  if (screen === "professional-signup") {
+    return (
+      <ProfessionalSignup
+        onBack={() => setScreen("create-account")}
+        onSuccess={() => setScreen("professional-status")}
+      />
+    );
+  }
+
+  if (screen === "professional-status") {
+    return (
+      <ProfessionalStatus
+        onContinue={() => setScreen("professional-dashboard")}
+      />
+    );
+  }
+
+  if (screen === "professional-dashboard") {
+    return (
+      <ProfessionalDashboard
+        onSelectTab={() => setScreen("professional-dashboard")}
+        onNavigate={(next) => setScreen(next as typeof screen)}
       />
     );
   }
@@ -235,7 +264,12 @@ const App = () => {
   }
 
   if (screen === "profile") {
-    return <ProfileScreen onSelectTab={handleTabSelect} />;
+    return (
+      <ProfileScreen
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "profile-details") {
@@ -243,11 +277,21 @@ const App = () => {
   }
 
   if (screen === "appointments") {
-    return <Appointments onSelectTab={handleTabSelect} />;
+    return (
+      <Appointments
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "appointments-detail") {
-    return <AppointmentsDetail onSelectTab={handleTabSelect} />;
+    return (
+      <AppointmentsDetail
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "subscription") {
@@ -255,11 +299,21 @@ const App = () => {
   }
 
   if (screen === "blog-news") {
-    return <BlogNewsScreen onSelectTab={handleTabSelect} />;
+    return (
+      <BlogNewsScreen
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "blog-news-detail") {
-    return <BlogNewsDetail onSelectTab={handleTabSelect} />;
+    return (
+      <BlogNewsDetail
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "emotional-health") {
@@ -271,11 +325,21 @@ const App = () => {
   }
 
   if (screen === "upcoming-events") {
-    return <UpcomingEvents onSelectTab={handleTabSelect} />;
+    return (
+      <UpcomingEvents
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "past-events") {
-    return <PastEvents onSelectTab={handleTabSelect} />;
+    return (
+      <PastEvents
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "choose-package") {
@@ -283,20 +347,36 @@ const App = () => {
       <ChoosePackage
         onSelectTab={handleTabSelect}
         onBooked={() => setScreen("appointments")}
+        onNavigate={(next) => setScreen(next as typeof screen)}
       />
     );
   }
 
   if (screen === "order-summary") {
-    return <OrderSummary onSelectTab={handleTabSelect} />;
+    return (
+      <OrderSummary
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "appointment-confirmed") {
-    return <AppointmentConfirmed onSelectTab={handleTabSelect} />;
+    return (
+      <AppointmentConfirmed
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "account-settings") {
-    return <AccountSettings onSelectTab={handleTabSelect} />;
+    return (
+      <AccountSettings
+        onSelectTab={handleTabSelect}
+        onNavigate={(next) => setScreen(next as typeof screen)}
+      />
+    );
   }
 
   if (screen === "payment-methods") {
@@ -305,7 +385,7 @@ const App = () => {
 
   return (
     <EssentialDetails
-      onBack={() => setScreen("create-account")}
+      onBack={() => setScreen("login")}
       onSuccess={() => setScreen("plan-select")}
     />
   );
