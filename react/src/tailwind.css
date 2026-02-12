@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --b-1: rgba(27, 27, 27, 1);
+  --b-2: rgba(76, 76, 76, 1);
+  --b-4: rgba(168, 168, 168, 1);
+  --bg: rgba(247, 250, 253, 1);
+  --body-reguler-12-font-family: "Montserrat", Helvetica;
+  --body-reguler-12-font-size: 12px;
+  --body-reguler-12-font-style: normal;
+  --body-reguler-12-font-weight: 600;
+  --body-reguler-12-letter-spacing: 0px;
+  --body-reguler-12-line-height: normal;
+  --body-reguler-14-font-family: "Montserrat", Helvetica;
+  --body-reguler-14-font-size: 14px;
+  --body-reguler-14-font-style: normal;
+  --body-reguler-14-font-weight: 400;
+  --body-reguler-14-letter-spacing: 0px;
+  --body-reguler-14-line-height: 139.9999976158142%;
+  --button-blod-14-font-family: "Cairo", Helvetica;
+  --button-blod-14-font-size: 14px;
+  --button-blod-14-font-style: normal;
+  --button-blod-14-font-weight: 700;
+  --button-blod-14-letter-spacing: 0px;
+  --button-blod-14-line-height: normal;
+  --button-blod-16-font-family: "Cairo", Helvetica;
+  --button-blod-16-font-size: 16px;
+  --button-blod-16-font-style: normal;
+  --button-blod-16-font-weight: 700;
+  --button-blod-16-letter-spacing: 0px;
+  --button-blod-16-line-height: normal;
+  --callout-bold-font-family: "SF Pro Text", Helvetica;
+  --callout-bold-font-size: 16px;
+  --callout-bold-font-style: normal;
+  --callout-bold-font-weight: 400;
+  --callout-bold-letter-spacing: -0.3199999928474426px;
+  --callout-bold-line-height: 21px;
+  --heading-h1-font-family: "Cairo", Helvetica;
+  --heading-h1-font-size: 24px;
+  --heading-h1-font-style: normal;
+  --heading-h1-font-weight: 700;
+  --heading-h1-letter-spacing: 0px;
+  --heading-h1-line-height: normal;
+  --heading-h2-font-family: "Cairo", Helvetica;
+  --heading-h2-font-size: 20px;
+  --heading-h2-font-style: normal;
+  --heading-h2-font-weight: 700;
+  --heading-h2-letter-spacing: 0px;
+  --heading-h2-line-height: 129.99999523162842%;
+  --label-colorlightprimary: rgba(0, 0, 0, 1);
+  --label-medium-14-font-family: "Montserrat", Helvetica;
+  --label-medium-14-font-size: 14px;
+  --label-medium-14-font-style: normal;
+  --label-medium-14-font-weight: 500;
+  --label-medium-14-letter-spacing: 0px;
+  --label-medium-14-line-height: normal;
+  --line: rgba(227, 227, 227, 1);
+  --main: rgba(45, 119, 227, 1);
+  --stroke: rgba(236, 241, 248, 1);
+  --white: rgba(255, 255, 255, 1);
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
